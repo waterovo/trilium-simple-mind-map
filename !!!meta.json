@@ -1,0 +1,318 @@
+{
+	"formatVersion": 2,
+	"appVersion": "0.63.5",
+	"files": [
+		{
+			"noteId": "clY0NcA8ubmX",
+			"notePath": [
+				"clY0NcA8ubmX"
+			],
+			"isClone": false,
+			"title": "trilium-sample-mind-map",
+			"notePosition": 300,
+			"prefix": null,
+			"isExpanded": true,
+			"type": "text",
+			"mime": "text/html",
+			"format": "html",
+			"dirFileName": "trilium-sample-mind-map",
+			"noImport": false,
+			"attributes": [],
+			"attachments": [],
+			"children": [
+				{
+					"noteId": "UQudKpJa1KHD",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"UQudKpJa1KHD"
+					],
+					"isClone": false,
+					"title": "TriliumSmmWidget",
+					"notePosition": 20,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "code",
+					"mime": "application/javascript;env=frontend",
+					"dataFileName": "TriliumSmmWidget.js",
+					"dirFileName": "TriliumSmmWidget",
+					"noImport": false,
+					"attributes": [
+						{
+							"type": "label",
+							"name": "widget",
+							"value": "",
+							"isInheritable": false,
+							"position": 10
+						}
+					],
+					"attachments": [],
+					"children": [
+						{
+							"noteId": "lF9ps1Nmyl5W",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"lF9ps1Nmyl5W"
+							],
+							"isClone": false,
+							"title": "config",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "config.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
+						},
+						{
+							"noteId": "qRNv8X9WMTl6",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"qRNv8X9WMTl6"
+							],
+							"isClone": false,
+							"title": "utils",
+							"notePosition": 20,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "utils.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
+						},
+						{
+							"noteId": "sQthH2ecpx7n",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"sQthH2ecpx7n"
+							],
+							"isClone": false,
+							"title": "SmmRender",
+							"notePosition": 30,
+							"prefix": null,
+							"isExpanded": true,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "SmmRender.js",
+							"dirFileName": "SmmRender",
+							"noImport": false,
+							"attributes": [],
+							"attachments": [],
+							"children": [
+								{
+									"noteId": "lF9ps1Nmyl5W",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"lF9ps1Nmyl5W"
+									],
+									"isClone": true,
+									"title": "config",
+									"prefix": null,
+									"type": "text",
+									"format": "html",
+									"dataFileName": "config.clone.html",
+									"noImport": false
+								},
+								{
+									"noteId": "qRNv8X9WMTl6",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"qRNv8X9WMTl6"
+									],
+									"isClone": true,
+									"title": "utils",
+									"prefix": null,
+									"type": "text",
+									"format": "html",
+									"dataFileName": "utils.clone.html",
+									"noImport": false
+								},
+								{
+									"noteId": "ILuta7EXbMqq",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"ILuta7EXbMqq"
+									],
+									"isClone": false,
+									"title": "simpleMindMap.common.js",
+									"notePosition": 30,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "file",
+									"mime": "application/javascript",
+									"dataFileName": "simpleMindMap.common.js",
+									"noImport": false,
+									"attributes": [
+										{
+											"type": "label",
+											"name": "originalFileName",
+											"value": "simpleMindMap.common.js",
+											"isInheritable": false,
+											"position": 10
+										}
+									],
+									"attachments": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"noteId": "mX7as1JcvBct",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"mX7as1JcvBct"
+					],
+					"isClone": false,
+					"title": "模板",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"format": "html",
+					"dirFileName": "模板",
+					"noImport": false,
+					"attributes": [],
+					"attachments": [],
+					"children": [
+						{
+							"noteId": "71rUdabKjq2f",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"mX7as1JcvBct",
+								"71rUdabKjq2f"
+							],
+							"isClone": false,
+							"title": "smm",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/json",
+							"dataFileName": "smm.json",
+							"noImport": false,
+							"attributes": [
+								{
+									"type": "label",
+									"name": "sampleMindMap",
+									"value": "",
+									"isInheritable": false,
+									"position": 10
+								}
+							],
+							"attachments": []
+						}
+					]
+				},
+				{
+					"noteId": "k4lLu5jass0y",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"k4lLu5jass0y"
+					],
+					"isClone": false,
+					"title": "static",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "text",
+					"mime": "text/html",
+					"format": "html",
+					"dirFileName": "static",
+					"noImport": false,
+					"attributes": [
+						{
+							"type": "label",
+							"name": "smmWidgetVersion",
+							"value": "v1.0.0",
+							"isInheritable": false,
+							"position": 10
+						}
+					],
+					"attachments": [],
+					"children": [
+						{
+							"noteId": "XoXjBNBfIfvE",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"k4lLu5jass0y",
+								"XoXjBNBfIfvE"
+							],
+							"isClone": false,
+							"title": "template",
+							"notePosition": 10,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "text/html",
+							"dataFileName": "template.html",
+							"noImport": false,
+							"attributes": [
+								{
+									"type": "label",
+									"name": "smmWidgetTemplate",
+									"value": "",
+									"isInheritable": false,
+									"position": 10
+								}
+							],
+							"attachments": []
+						},
+						{
+							"noteId": "vhq3k9FfJVwJ",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"k4lLu5jass0y",
+								"vhq3k9FfJVwJ"
+							],
+							"isClone": false,
+							"title": "css",
+							"notePosition": 20,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "text/css",
+							"dataFileName": "css.css",
+							"noImport": false,
+							"attributes": [
+								{
+									"type": "label",
+									"name": "smmWidgetCss",
+									"value": "",
+									"isInheritable": false,
+									"position": 10
+								}
+							],
+							"attachments": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"noImport": true,
+			"dataFileName": "navigation.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "index.html"
+		},
+		{
+			"noImport": true,
+			"dataFileName": "style.css"
+		}
+	]
+}
