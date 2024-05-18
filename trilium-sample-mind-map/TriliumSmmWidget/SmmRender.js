@@ -13,6 +13,7 @@ class SmmRender {
                 {id:'smm_delete_node',enabled:false},
                 {id:'smm_insert_node',enabled:false},
                 {id:'smm_insert_child_node',enabled:false},
+                {id:'smm_insert_image',enabled:false},
                 {id:'smm_insert_url',enabled:false},
                 {id:'smm_insert_remark',enabled:false},
                 {id:'smm_insert_ga',enabled:false},
@@ -22,6 +23,7 @@ class SmmRender {
                 {id:'smm_delete_node',enabled:true},
                 {id:'smm_insert_node',enabled:false},
                 {id:'smm_insert_child_node',enabled:true},
+                {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
@@ -31,6 +33,7 @@ class SmmRender {
                 {id:'smm_delete_node',enabled:true},
                 {id:'smm_insert_node',enabled:true},
                 {id:'smm_insert_child_node',enabled:true},
+                {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:true},
@@ -40,6 +43,7 @@ class SmmRender {
                 {id:'smm_delete_node',enabled:true},
                 {id:'smm_insert_node',enabled:false},
                 {id:'smm_insert_child_node',enabled:false},
+                {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
@@ -89,6 +93,7 @@ class SmmRender {
             initRootNodePosition: ['center', 'center'],
             layout: 'logicalStructure'
         });
+
         this.mindMap.setFullData(JSON.parse(mind_note_data));
 
         // 监听节点激活事件
@@ -173,6 +178,7 @@ class SmmRender {
         this.$widget.find('.smm-toolbar-btn#smm_delete_node').click(()=>this.delete_node());
         this.$widget.find('.smm-toolbar-btn#smm_insert_node').click(()=>this.insert_node());
         this.$widget.find('.smm-toolbar-btn#smm_insert_child_node').click(()=>this.insert_child_node());
+        this.$widget.find('.smm-toolbar-btn#smm_insert_image').click(()=>this.insert_image());
         this.$widget.find('.smm-toolbar-btn#smm_insert_url').click(()=>this.insert_url());
         this.$widget.find('.smm-toolbar-btn#smm_insert_remark').click(()=>this.insert_remark());
         this.$widget.find('.smm-toolbar-btn#smm_insert_ga').click(()=>this.insert_ga());
@@ -203,6 +209,34 @@ class SmmRender {
         this.mindMap.execCommand('INSERT_CHILD_NODE');
     }
     
+    insert_image() {
+        let imageUrl = "";
+        let imageTitle = "";
+        this.activeNodes.forEach(node => {
+            if(!!node.getData('image')&&node.getData('image')!==""){
+                imageUrl = node.getData('image');
+                imageTitle = node.getData('imageTitle');
+            }
+        })
+
+        this.$widget.find('#imageBackdrop input[name="imageUrlContent"]').val(imageUrl);
+        this.$widget.find('#imageBackdrop input[name="imageTitleContent"]').val(imageTitle);
+        this.$widget.find('#imageBackdrop').modal('show');
+        this.$widget.find('#imageSave').click(()=>{
+            imageUrl = this.$widget.find('#imageBackdrop input[name="imageUrlContent"]').val();
+            imageTitle = this.$widget.find('#imageBackdrop input[name="imageTitleContent"]').val();
+            this.activeNodes.forEach(node => {
+                node.setImage({
+                    url: imageUrl,
+                    title: imageTitle,
+                    width: 100,
+                    height: 100
+                })
+            })
+            this.$widget.find('#imageBackdrop').modal('hide');
+        });
+    }
+    
     insert_url() {
         let hyperlink = "";
         let hyperlinkTitle = "";
@@ -217,9 +251,8 @@ class SmmRender {
         this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val(hyperlinkTitle);
         this.$widget.find('#urlLinkBackdrop').modal('show');
         this.$widget.find('#urlLinkSave').click(()=>{
-            hyperlink = this.$widget.find('#urlLinkBackdrop textarea[name="urlLinkContent"]').val();
-            hyperlinkTitle = this.$widget.find('#urlLinkBackdrop textarea[name="urlTextContent"]').val();
-            
+            hyperlink = this.$widget.find('#urlLinkBackdrop input[name="urlLinkContent"]').val();
+            hyperlinkTitle = this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val();
             this.activeNodes.forEach(node => {
                 node.setHyperlink(hyperlink, hyperlinkTitle);
             })
