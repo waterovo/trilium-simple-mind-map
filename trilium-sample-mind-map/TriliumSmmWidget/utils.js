@@ -1,13 +1,13 @@
 // 获取css笔记内容
 async function getNoteConetntList(noteIdList) {
-    const noteContentArr = JSON.parse(await api.runAsyncOnBackendWithManualTransactionHandling(async(noteIdList) => {
-                const noteContentArr = [];
-                for (const noteId of noteIdList) {
-                    const note = await api.getNote(noteId);
-                    noteContentArr.push(note.getContent());
-                }
-                return JSON.stringify(noteContentArr);
-            }, [noteIdList]));
+    const noteContentArr = JSON.parse(await api.runAsyncOnBackendWithManualTransactionHandling(async (noteIdList) => {
+        const noteContentArr = [];
+        for (const noteId of noteIdList) {
+            const note = await api.getNote(noteId);
+            noteContentArr.push(note.getContent());
+        }
+        return JSON.stringify(noteContentArr);
+    }, [noteIdList]));
     return noteContentArr;
 }
 
@@ -22,7 +22,7 @@ async function getData(noteId) {
 
 // 获取
 function setData(noteId, noteTitle, noteConetnt) {
-    api.runAsyncOnBackendWithManualTransactionHandling(async(noteId, noteTitle, noteConetnt) => {
+    api.runAsyncOnBackendWithManualTransactionHandling(async (noteId, noteTitle, noteConetnt) => {
         const note = await api.getNote(noteId);
         note.title = noteTitle;
         note.setContent(noteConetnt);
@@ -30,14 +30,14 @@ function setData(noteId, noteTitle, noteConetnt) {
 }
 
 function setRelation(noteId, name, value) {
-    api.runAsyncOnBackendWithManualTransactionHandling(async(noteId, name, value) => {
+    api.runAsyncOnBackendWithManualTransactionHandling(async (noteId, name, value) => {
         const note = await api.getNote(noteId);
         note.setRelation(name, value);
     }, [noteId, name, value]);
 }
 
 function setLabel(noteId, name, value) {
-    api.runAsyncOnBackendWithManualTransactionHandling(async(noteId, name, value) => {
+    api.runAsyncOnBackendWithManualTransactionHandling(async (noteId, name, value) => {
         const note = await api.getNote(noteId);
         note.setLabel(name, value);
     }, [noteId, name, value]);
@@ -51,11 +51,22 @@ async function createDataNote(parentNoteId, title, content) {
     return noteId;
 }
 
-async function createImageNote(parentNoteId, title, content) {
-    const noteId = await api.runOnBackend((parentNoteId, title, content) => {
-        let imageNote = api.searchForNote(`#jsMindImageAttachment AND note.parents.noteId='${parentNoteId}' AND note.title='${title}'`);
-        const imageData = Buffer.from(content.replace(/^data:image\/\w+;base64,/, ''), 'base64');
-        if(imageNote===null){
+async function createImageNote(parentNoteId, title, fileType, content) {
+    const noteId = await api.runOnBackend((parentNoteId, title, fileType, content) => {
+        let imageNote = api.searchForNote(`#smmImageAttachment AND note.parents.noteId='${parentNoteId}' AND note.title='${title}'`);
+        let imageData = Buffer.from(content.replace(/^data:image\/[a-zA-Z+]+;base64,/, ''), 'base64');
+        function getExtensionFromBase64(base64) {
+            let re = new RegExp('data:image/(?<ext>.*?);base64,.*')
+            let res = re.exec(base64)
+            if (res) {
+                return res.groups.ext
+            }
+        }
+        const imageType = getExtensionFromBase64(content);
+        if (fileType === 'svg') {
+            imageData = imageData.toString('utf-8');
+        }
+        if (imageNote === null) {
             const noteParams = {
                 parentNoteId: parentNoteId,
                 title: title,
@@ -64,38 +75,14 @@ async function createImageNote(parentNoteId, title, content) {
             }
             var obj = api.createNewNote(noteParams);
             imageNote = obj.note;
-        }else{
+        } else {
             imageNote.setContent(imageData);
         }
-        
-        imageNote.mime = "image/png";
-        imageNote.setLabel("jsMindImageAttachment");
+
+        imageNote.mime = `image/${imageType}`;
+        imageNote.setLabel("smmImageAttachment");
         imageNote.save();
-        // 目前无法将笔记附件直接关联到其他笔记
-        /*
-        const parentNote = api.getNote(parentNoteId);
-        let attachment = parentNote.getAttachmentByTitle(title);
-        api.log(attachment);
-        if(!attachment){
-            const noteParams = {
-                parentNoteId: parentNoteId,
-                title: title,
-                content: imageData,
-                type: "image",
-            }
-            var obj = api.createNewNote(noteParams);
-            obj.note.mime = "image/png";
-            obj.note.save();
-            let attachment = obj.note.convertToParentAttachment();
-            if(!attachment){
-                attachment = obj.note.convertToParentAttachment();
-            }
-        }else{
-            api.log(attachment.attachmentId);
-            attachment.setContent(imageData);
-            attachment.save();
-        }*/
-    }, [parentNoteId, title, content]);
+    }, [parentNoteId, title, fileType, content]);
 }
 module.exports = {
     getNoteConetntList,

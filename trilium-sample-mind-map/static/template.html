@@ -1,1 +1,143 @@
 <div id="smm_container" class="smm-container"></div>
+<div class="smm-toolbar">
+    <div class="smm-toolbar-block">
+        <div class="smm-toolbar-btn-list">
+            <div class="smm-toolbar-btn" id="smm_back"><span class="bx bx-undo icon iconfont"></span><span
+                    class="text">回退</span></div>
+            <div class="smm-toolbar-btn" id="smm_forward"><span class="bx bx-redo icon iconfont"></span><span
+                    class="text">前进</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_node"><span class="bx bx-git-branch icon iconfont"></span><span
+                    class="text">同级节点</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_child_node"><span
+                    class="bx bx-sitemap icon iconfont"></span><span class="text">子节点</span></div>
+            <div class="smm-toolbar-btn" id="smm_delete_node"><span class="bx bx-trash icon iconfont"></span><span
+                    class="text">删除节点</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_url"><span class="bx bx-link icon iconfont"></span><span
+                    class="text">超链接</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_remark"><span class="bx bx-detail icon iconfont"></span><span
+                    class="text">备注</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_ga"><span class="bx bxs-dashboard icon iconfont"></span><span
+                    class="text">概要</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_relation_line"><span
+                    class="bx bx-git-compare icon iconfont"></span><span class="text">关联线</span></div>
+        </div>
+    </div>
+</div>
+
+<div id="smm_tools" class="smm-tools">
+    <ul class="menu">
+        <li id="smmtools_menu" class="menu-item action-trigger title">
+            <span class="bx bx-menu" />
+            <span class="menu-text">Menu</span>
+        </li>
+        <li class="menu-item menu-divider" />
+        <li id="smmtools_enter_fullscreen" class="menu-item action-trigger">
+            <span class="bx bx-fullscreen" />
+            <span class="menu-text">Enter Full Screen</span>
+        </li>
+        <li id="smmtools_exit_fullscreen" class="menu-item action-trigger">
+            <span class="bx bx-exit-fullscreen" />
+            <span class="menu-text">Exit Full Screen</span>
+        </li>
+        <li class="menu-item menu-divider" />
+        <li id="smmtools_export" class="menu-item action-trigger">
+            <span class="bx bx-export" />
+            <span class="menu-text">Export File</span>
+            <select>
+                <option value="">选择导出类型</option>
+                <option value="png">.png</option>
+                <option value="json">.json</option>
+                <option value="svg">.svg</option>
+                <option value="pdf">.pdf</option>
+                <option value="md">.md</option>
+                <option value="xmind">.xmind</option>
+            </select>
+        </li>
+        <li id="smmtools_save_imagenote" class="menu-item action-trigger">
+            <span class="bx bx-image-add" />
+            <span class="menu-text">Save image note</span>
+        </li>
+        <li class="menu-item menu-divider" />
+        <li id="smmtools_struct" class="menu-item">
+            <span class="bx bx-grid-alt" />
+            <span class="menu-text">Structure</span>
+            <select>
+                <option value="logicalStructure">逻辑结构图</option>
+                <option value="mindMap">思维导图</option>
+                <option value="organizationStructure">组织结构图</option>
+                <option value="catalogOrganization">目录组织图</option>
+                <option value="timeline">时间轴</option>
+                <option value="timeline2">时间轴2</option>
+                <option value="fishbone">鱼骨图</option>
+                <option value="verticalTimeline">竖向时间轴</option>
+            </select>
+        </li>
+        <li id="smmtools_theme" class="menu-item">
+            <span class="bx bx-palette" />
+            <span class="menu-text">Theme</span>
+            <select>
+            </select>
+        </li>
+        <li class="menu-item menu-divider" />
+        <li id="smmtools_help" class="menu-item action-trigger">
+            <span class="bx bx-help-circle" />
+            <span class="menu-text">Help</span>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="urlLinkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="urlLinkBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="urlLinkBackdropLabel">超链接</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">链接</span>
+                    </div>
+                    <input name="urlLinkContent" type="text" class="form-control" placeholder="输入URL"
+                        aria-label="输入URL">
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">名称</span>
+                    </div>
+                    <input name="urlTextContent" type="text" class="form-control">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" id="urlLinkSave" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="remarkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="remarkBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="remarkBackdropLabel">备注</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <textarea class="form-control" name="remarkContent" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                <button type="button" id="remarkSave" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

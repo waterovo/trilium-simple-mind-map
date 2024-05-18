@@ -3,20 +3,19 @@
     overflow: auto;
     min-height: 200px;
     border-bottom: 1px solid var(--main-border-color);
-    padding: 20px;
     margin-bottom: 10px;
     flex-basis: 0;
 }
 
-.smm-render{
+.smm-render {
+    position: relative;
     overflow: auto;
     height: 100%;
 }
 
 .smm-container {
-	width: 100%;
-	height: 100%;
-    background-color: #333;
+    width: 100%;
+    height: 100%;
 }
 
 .smm-container {
@@ -30,6 +29,197 @@
 }
 
 .smm-container * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.smm-toolbar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;
+    width: max-content;
+    display: flex;
+    font-size: 12px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(26, 26, 26, 0.8);
+    z-index: 2;
+}
+
+.smm-toolbar .smm-toolbar-block {
+    display: flex;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px !important;
+    box-shadow: 0 2px 16px 0 rgba(0, 0, 0, .06);
+    border: 1px solid rgba(0, 0, 0, .06);
+    margin-right: 20px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.smm-toolbar-btn-list {
+    display: flex;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn:last-of-type {
+    margin-right: 0;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn.active .icon,
+.smm-toolbar-btn-list .smm-toolbar-btn:hover:not(.disabled) .icon {
+    background: #f5f5f5;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn.disabled {
+    color: #bcbcbc;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn .icon {
+    display: flex;
+    height: 26px;
+    background: #fff;
+    border-radius: 4px !important;
+    border: 1px solid #e9e9e9;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn .iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.smm-toolbar-btn-list .smm-toolbar-btn .text {
+    margin-top: 3px;
+}
+
+.smm-render textarea {
+    background: none !important;
+}
+
+.smm-render .smm-tools {
+    position: absolute;
+    z-index: 110;
+    top: 10px;
+    left: 10px;
+    border-radius: 5px !important;
+    opacity: 0.5;
+}
+
+.smm-render .smm-tools:hover {
+    opacity: 1;
+}
+
+.smm-render .smm-tools ul {
+    float: left;
+    margin: 0 3px;
+}
+
+.smm-render .smm-tools li {
+    display: none;
+}
+
+.smm-render .smm-tools li.title {
+    display: list-item;
+}
+
+.smm-render .smm-tools li.title .menu-text {
+    display: none;
+}
+
+.smm-render .smm-tools-active {
+    opacity: 1;
+    border: solid 1px #fff;
+    border-color: gray;
+    background-color: #fff;
+}
+
+.smm-render .smm-tools-active li {
+    display: list-item;
+}
+
+.smm-render .smm-tools-active li.title {
+    opacity: 1;
+}
+
+.smm-render .smm-tools-active li.title .menu-text {
+    display: inline-block;
+}
+
+.smm-render .menu {
+    padding: 6px 8px !important;
+    list-style: none;
+}
+
+.smm-render .menu li {
+    height: 28px;
+    opacity: 0.4;
+    cursor: default;
+    user-select: none;
+    font-family: "Microsoft YaHei", simhei, STHeiTi, sans-serif, Verdana;
+    vertical-align: middle;
+}
+
+.smm-render .menu li:hover {
+    opacity: 1;
+}
+
+.smm-render .menu .menu-icon {
+    display: inline-block;
+    font-size: 18px;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 6px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.smm-render .menu .menu-text {
+    display: inline-block;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: baseline;
+}
+
+.smm-render .menu .menu-divider {
+    border-bottom: solid 1px gray;
+    height: 0;
+    margin: 6px 0;
+}
+
+.smm-render .menu-item {
+    position: relative;
+}
+
+.smm-render .menu-item .menu {
+    background-color: #fff;
+    border: solid 1px gray;
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    left: 95%;
+    top: 0;
+    z-index: 112;
+}
+
+.smm-render .menu-item:hover .menu {
+    display: block;
 }

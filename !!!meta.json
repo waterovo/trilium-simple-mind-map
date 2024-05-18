@@ -96,7 +96,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
@@ -179,7 +179,7 @@
 					"title": "模板",
 					"notePosition": 30,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -196,13 +196,13 @@
 								"71rUdabKjq2f"
 							],
 							"isClone": false,
-							"title": "smm",
+							"title": "sample-mind-map",
 							"notePosition": 10,
 							"prefix": null,
 							"isExpanded": false,
 							"type": "code",
 							"mime": "application/json",
-							"dataFileName": "smm.json",
+							"dataFileName": "sample-mind-map.json",
 							"noImport": false,
 							"attributes": [
 								{
@@ -211,6 +211,27 @@
 									"value": "",
 									"isInheritable": false,
 									"position": 10
+								},
+								{
+									"type": "label",
+									"name": "template",
+									"value": "",
+									"isInheritable": false,
+									"position": 20
+								},
+								{
+									"type": "label",
+									"name": "iconClass",
+									"value": "bx bx-bolt-circle",
+									"isInheritable": false,
+									"position": 40
+								},
+								{
+									"type": "label",
+									"name": "hideChildrenOverview",
+									"value": "",
+									"isInheritable": false,
+									"position": 30
 								}
 							],
 							"attachments": []
@@ -227,7 +248,7 @@
 					"title": "static",
 					"notePosition": 50,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -299,6 +320,25 @@
 							"attachments": []
 						}
 					]
+				},
+				{
+					"noteId": "uZl2xsivEFSP",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"uZl2xsivEFSP"
+					],
+					"isClone": false,
+					"title": "快捷键",
+					"notePosition": 60,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "text",
+					"mime": "text/html",
+					"format": "html",
+					"dataFileName": "快捷键.html",
+					"noImport": false,
+					"attributes": [],
+					"attachments": []
 				}
 			]
 		},

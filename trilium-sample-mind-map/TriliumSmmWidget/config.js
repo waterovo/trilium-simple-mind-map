@@ -8,6 +8,9 @@ const SMM_TPL_NOTE_ID = templateNote.noteId;
 // 获取css笔记ID
 const cssNotesQuery = await api.searchForNotes(`#smmWidgetCss AND note.parents.labels.smmWidgetVersion="${SMM_WDIGET_VERSION}"`);
 var CSS_NOTE_ID_LIST = [];
+
+const IMAGE_NOTE_TYPE = "svg";
+const HELP_URL = "https://github.com/waterovo/trilium-sample-mind-map";
         
 for ( let i = 0; i < cssNotesQuery.length; i++ ) {
     const note = cssNotesQuery[i];
@@ -16,5 +19,7 @@ for ( let i = 0; i < cssNotesQuery.length; i++ ) {
 
 module.exports = {
     SMM_TPL_NOTE_ID,
-    CSS_NOTE_ID_LIST
+    CSS_NOTE_ID_LIST,
+    IMAGE_NOTE_TYPE,
+    HELP_URL
 }
