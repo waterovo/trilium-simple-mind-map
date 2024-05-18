@@ -2,6 +2,7 @@
 ### 预览
 ![image](https://github.com/waterovo/trilium-sample-mind-map/assets/61768530/4fa93e38-c9dc-4dd4-993d-9130de09db46)
 Powered by [sample-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.63.5）
+
 如果您觉得这个插件过大，可以选择[trilium-jsmind](https://github.com/waterovo/trilium-jsmind)
 ### 安装
 1. 导入笔记，取消勾选安全导入选项（如果您不熟悉trilium的小部件，请谨慎操作）
