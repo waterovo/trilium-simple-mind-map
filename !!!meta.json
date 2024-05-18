@@ -8,14 +8,14 @@
 				"clY0NcA8ubmX"
 			],
 			"isClone": false,
-			"title": "trilium-sample-mind-map",
+			"title": "trilium-simple-mind-map",
 			"notePosition": 300,
 			"prefix": null,
 			"isExpanded": true,
 			"type": "text",
 			"mime": "text/html",
 			"format": "html",
-			"dirFileName": "trilium-sample-mind-map",
+			"dirFileName": "trilium-simple-mind-map",
 			"noImport": false,
 			"attributes": [],
 			"attachments": [],
@@ -96,7 +96,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
@@ -179,7 +179,7 @@
 					"title": "模板",
 					"notePosition": 30,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -196,22 +196,15 @@
 								"71rUdabKjq2f"
 							],
 							"isClone": false,
-							"title": "sample-mind-map",
+							"title": "simple-mind-map",
 							"notePosition": 10,
 							"prefix": null,
 							"isExpanded": false,
 							"type": "code",
 							"mime": "application/json",
-							"dataFileName": "sample-mind-map.json",
+							"dataFileName": "simple-mind-map.json",
 							"noImport": false,
 							"attributes": [
-								{
-									"type": "label",
-									"name": "sampleMindMap",
-									"value": "",
-									"isInheritable": false,
-									"position": 10
-								},
 								{
 									"type": "label",
 									"name": "template",
@@ -232,6 +225,13 @@
 									"value": "",
 									"isInheritable": false,
 									"position": 30
+								},
+								{
+									"type": "label",
+									"name": "simpleMindMap",
+									"value": "",
+									"isInheritable": false,
+									"position": 10
 								}
 							],
 							"attachments": []
@@ -248,7 +248,7 @@
 					"title": "static",
 					"notePosition": 50,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",

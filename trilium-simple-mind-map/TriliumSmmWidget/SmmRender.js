@@ -318,7 +318,7 @@ class SmmRender {
         $smmtools_save_imagenote.click(() => {
             let fileType = config.IMAGE_NOTE_TYPE;
             this.mindMap.export(fileType, false).then((content)=>{
-                utils.createImageNote(this.smmNote.noteId, `sample-mind-map-export.${fileType}`, fileType, content).then((res) => {
+                utils.createImageNote(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
                     api.showMessage("图像已经创建成功了！");
                 });
             });

@@ -18,7 +18,7 @@ class SmmWidget extends api.NoteContextAwareWidget {
         return super.isEnabled() 
         && this.note.type === 'code' 
         && this.note.mime==="application/json" 
-        && this.note.hasLabel('sampleMindMap')
+        && this.note.hasLabel('simpleMindMap')
         && this.note.isContentAvailable()
         && this.noteContext?.viewScope.viewMode === 'default';
     }

@@ -10,7 +10,7 @@ const cssNotesQuery = await api.searchForNotes(`#smmWidgetCss AND note.parents.l
 var CSS_NOTE_ID_LIST = [];
 
 const IMAGE_NOTE_TYPE = "svg";
-const HELP_URL = "https://github.com/waterovo/trilium-sample-mind-map";
+const HELP_URL = "https://github.com/waterovo/trilium-simple-mind-map";
         
 for ( let i = 0; i < cssNotesQuery.length; i++ ) {
     const note = cssNotesQuery[i];
