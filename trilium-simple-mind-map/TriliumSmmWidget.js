@@ -35,8 +35,21 @@ class SmmWidget extends api.NoteContextAwareWidget {
     async renderWidget() {
         let $template = $(TPL);
         this.$render.html($template);
+        this.renderQuickSearchWidget();
         this.smmRender = new SmmRender();
         await this.smmRender.init(this);
+    }
+    
+    renderQuickSearchWidget() {
+        let $modalBody = this.$render.find("#urlLinkBackdrop .modal-body");
+        this.qsWidget = new QuickSearchWidget((e, noteLink)=>{
+            console.log(e,noteLink);
+            if (!e.target || e.target.nodeName !== 'A') {
+                this.$widget.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(noteLink.url);
+                this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val(noteLink.title);
+            }
+        }, false);
+        $modalBody.append(this.qsWidget.doRender());
     }
     
     async refreshWithNote(note) {

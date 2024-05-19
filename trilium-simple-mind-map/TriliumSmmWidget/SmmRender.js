@@ -225,12 +225,15 @@ class SmmRender {
         this.$widget.find('#imageSave').click(()=>{
             imageUrl = this.$widget.find('#imageBackdrop input[name="imageUrlContent"]').val();
             imageTitle = this.$widget.find('#imageBackdrop input[name="imageTitleContent"]').val();
+            
+            let imageWidth = 100;
+            let imageHeight = 100;
             this.activeNodes.forEach(node => {
                 node.setImage({
                     url: imageUrl,
                     title: imageTitle,
-                    width: 100,
-                    height: 100
+                    width: imageWidth,
+                    height: imageHeight
                 })
             })
             this.$widget.find('#imageBackdrop').modal('hide');
@@ -298,7 +301,7 @@ class SmmRender {
         let $smmtools_help = this.$widget.find('#smmtools_help');
  
         $smmtools_menu.click(() => {
-            //this.switch_fullscreen_button();
+            this.switch_fullscreen_button();
             $smmtools_area.toggleClass('smm-tools-active');
         });
 
@@ -358,7 +361,11 @@ class SmmRender {
         });
         
         window.addEventListener("resize", (event) => {
-            this.smm_resize();
+            try{
+                this.smm_resize();
+            }catch(e){
+                // 忽略报错
+            }
             this.switch_fullscreen_button();
         }, true);
     }

@@ -9,6 +9,7 @@ const SMM_TPL_NOTE_ID = templateNote.noteId;
 const cssNotesQuery = await api.searchForNotes(`#smmWidgetCss AND note.parents.labels.smmWidgetVersion="${SMM_WDIGET_VERSION}"`);
 var CSS_NOTE_ID_LIST = [];
 
+// svg OR png
 const IMAGE_NOTE_TYPE = "svg";
 const HELP_URL = "https://github.com/waterovo/trilium-simple-mind-map";
         

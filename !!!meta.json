@@ -96,7 +96,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
@@ -151,7 +151,7 @@
 									"prefix": null,
 									"isExpanded": false,
 									"type": "file",
-									"mime": "application/javascript",
+									"mime": "application/x-javascript",
 									"dataFileName": "simpleMindMap.common.js",
 									"noImport": false,
 									"attributes": [
@@ -166,6 +166,92 @@
 									"attachments": []
 								}
 							]
+						},
+						{
+							"noteId": "Ik1moip5b3vX",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"Ik1moip5b3vX"
+							],
+							"isClone": false,
+							"title": "QuickSearchWidget",
+							"notePosition": 40,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "QuickSearchWidget.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
+						}
+					]
+				},
+				{
+					"noteId": "BtT8aPxq7IhA",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"BtT8aPxq7IhA"
+					],
+					"isClone": false,
+					"title": "CopyImageReferenceButton",
+					"notePosition": 30,
+					"prefix": null,
+					"isExpanded": true,
+					"type": "code",
+					"mime": "application/javascript;env=frontend",
+					"dataFileName": "CopyImageReferenceButton.js",
+					"dirFileName": "CopyImageReferenceButton",
+					"noImport": false,
+					"attributes": [
+						{
+							"type": "label",
+							"name": "widget",
+							"value": "",
+							"isInheritable": false,
+							"position": 10
+						}
+					],
+					"attachments": [],
+					"children": [
+						{
+							"noteId": "19X1eX6yBFyP",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"BtT8aPxq7IhA",
+								"19X1eX6yBFyP"
+							],
+							"isClone": false,
+							"title": "utils",
+							"notePosition": 1,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "utils.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
+						},
+						{
+							"noteId": "THpT9v2Ylv9c",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"BtT8aPxq7IhA",
+								"THpT9v2Ylv9c"
+							],
+							"isClone": false,
+							"title": "config",
+							"notePosition": 11,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "config.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
 						}
 					]
 				},
@@ -177,9 +263,9 @@
 					],
 					"isClone": false,
 					"title": "模板",
-					"notePosition": 30,
+					"notePosition": 40,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -246,7 +332,7 @@
 					],
 					"isClone": false,
 					"title": "static",
-					"notePosition": 50,
+					"notePosition": 60,
 					"prefix": null,
 					"isExpanded": false,
 					"type": "text",
@@ -329,7 +415,7 @@
 					],
 					"isClone": false,
 					"title": "快捷键",
-					"notePosition": 60,
+					"notePosition": 70,
 					"prefix": null,
 					"isExpanded": false,
 					"type": "text",
