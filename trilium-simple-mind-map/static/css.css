@@ -1,10 +1,20 @@
-.smm-widget {
+.smm-widget.smm-show-source {
     flex-grow: 5;
     overflow: auto;
     min-height: 200px;
     border-bottom: 1px solid var(--main-border-color);
     margin-bottom: 10px;
     flex-basis: 0;
+}
+
+.smm-widget.smm-hide-source {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: auto;
+    z-index: 2;
 }
 
 .smm-render {
@@ -44,7 +54,7 @@
     font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: rgba(26, 26, 26, 0.8);
-    z-index: 2;
+    z-index: 3;
 }
 
 .smm-toolbar .smm-toolbar-block {

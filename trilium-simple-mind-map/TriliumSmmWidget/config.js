@@ -11,6 +11,10 @@ var CSS_NOTE_ID_LIST = [];
 
 // svg OR png
 const IMAGE_NOTE_TYPE = "svg";
+
+// 是否显示编辑框
+const SHOW_SOURCE = true; //！实验功能，请勿更改此选项
+
 const HELP_URL = "https://github.com/waterovo/trilium-simple-mind-map";
         
 for ( let i = 0; i < cssNotesQuery.length; i++ ) {
@@ -22,5 +26,6 @@ module.exports = {
     SMM_TPL_NOTE_ID,
     CSS_NOTE_ID_LIST,
     IMAGE_NOTE_TYPE,
+    SHOW_SOURCE,
     HELP_URL
 }

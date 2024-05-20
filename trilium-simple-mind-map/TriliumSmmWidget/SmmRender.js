@@ -58,6 +58,14 @@ class SmmRender {
 
         if(true || config.RENDER_ON === "note-detail"){
             let smmwComponentId = this.$widget.parent().attr("data-component-id");
+            if(config.SHOW_SOURCE){
+                this.$widget.addClass("smm-show-source");
+                this.$widget.removeClass("smm-hide-source");
+            }else{
+                this.$widget.parent().css("position", "relative");
+                this.$widget.addClass("smm-hide-source");
+                this.$widget.removeClass("smm-show-source");
+            }
 
             this.smmContainerId = `smm_container_${smmwComponentId}`;
             let $smm_container = this.$widget.find('#smm_container');
@@ -130,7 +138,7 @@ class SmmRender {
         this.$widget.find('.smm-container svg g.smm-node a').each((index, element)=>{
             let $a = $(element);
             if(regex.test($a.attr("href"))){
-                $(element).attr("target", target);
+                $a.attr("target", target);
             }
         })
     }
@@ -311,7 +319,7 @@ class SmmRender {
         let $smmtools_menu = this.$widget.find('#smmtools_menu');
         let $smmtools_area = this.$widget.find('#smm_tools');
         let $smmtools_save_imagenote = this.$widget.find('#smmtools_save_imagenote');
-        
+
         let $smmtools_help = this.$widget.find('#smmtools_help');
  
         $smmtools_menu.click(() => {
@@ -319,7 +327,9 @@ class SmmRender {
             $smmtools_area.toggleClass('smm-tools-active');
         });
 
-        this.register_change_fullscreen();
+        this.register_fullscreen_event();
+
+        this.register_fulltab_event();
 
         $(document).click(function (event) {
             let target = $(event.target); // 获取点击事件的目标元素
@@ -360,7 +370,7 @@ class SmmRender {
         }
     }
 
-    register_change_fullscreen() {
+    register_fullscreen_event() {
         this.switch_fullscreen_button();
     
         // 全屏点击事件
@@ -382,6 +392,34 @@ class SmmRender {
             }
             this.switch_fullscreen_button();
         }, true);
+    }
+    
+    register_fulltab_event(){
+        let $smmtools_enterfulltab = this.$widget.find('#smmtools_enter_fulltab');
+        let $smmtools_exitfulltab = this.$widget.find('#smmtools_exit_fulltab');
+        $smmtools_enterfulltab.click(()=>{
+            this.$widget.parent().css("position", "relative");
+            this.$widget.addClass("smm-hide-source");
+            this.$widget.removeClass("smm-show-source");
+            $smmtools_enterfulltab.addClass('hidden-ext');
+            $smmtools_exitfulltab.removeClass('hidden-ext');
+            this.smm_resize();
+        });
+        $smmtools_exitfulltab.click(()=>{
+            this.$widget.parent().css("position", '');
+            this.$widget.addClass("smm-show-source");
+            this.$widget.removeClass("smm-hide-source");
+            $smmtools_enterfulltab.removeClass('hidden-ext');
+            $smmtools_exitfulltab.addClass('hidden-ext');
+            this.smm_resize();
+        });
+        if(config.SHOW_SOURCE){
+            $smmtools_enterfulltab.removeClass('hidden-ext');
+            $smmtools_exitfulltab.addClass('hidden-ext');
+        }else{
+            $smmtools_enterfulltab.addClass('hidden-ext');
+            $smmtools_exitfulltab.removeClass('hidden-ext');
+        }
     }
 
     render_smm_export_select() {
