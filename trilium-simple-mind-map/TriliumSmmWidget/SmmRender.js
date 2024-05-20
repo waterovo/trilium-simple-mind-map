@@ -82,7 +82,7 @@ class SmmRender {
                 this.create_mind_map(mind_note_data);
                 this.initialized = true;
             }
-            //this.open_smm_note(mind_data);
+            
             console.log("smm render success");
         }
     }
@@ -106,6 +106,11 @@ class SmmRender {
             this.save_mind_note();
         })
         
+        this.mindMap.on('node_tree_render_end', data => {
+            // 笔记超链接设置为当前页打开
+            this.set_note_link_target();
+        })
+        
         this.isStart = true
         this.isEnd = true
         this.mindMap.on('back_forward', (index, len) => {
@@ -119,6 +124,15 @@ class SmmRender {
     
     smm_resize() {
         this.mindMap.resize();
+    }
+    
+    set_note_link_target(regex=/^#root/, target='_self'){
+        this.$widget.find('.smm-container svg g.smm-node a').each((index, element)=>{
+            let $a = $(element);
+            if(regex.test($a.attr("href"))){
+                $(element).attr("target", target);
+            }
+        })
     }
     
     toolbar_render() {

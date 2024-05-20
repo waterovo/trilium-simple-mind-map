@@ -96,7 +96,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
