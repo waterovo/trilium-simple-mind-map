@@ -7,7 +7,8 @@ class SmmRender {
         this.MindMap = MindMap;
         this.initialized = false;
         this.activeNodes = [];
-        this.themeList = Object.keys(MindMap.themes);
+        this.init_custom_theme();
+        this.themeList = Object.keys(MindMap.themes).reverse();
         this.toolbarBtnsRole = {
             "unselected": [
                 {id:'smm_delete_node',enabled:false},
@@ -51,6 +52,12 @@ class SmmRender {
             ],
         };
     }
+    
+    init_custom_theme() {
+        customThemeList.forEach(themeConfig=>{
+            MindMap.defineTheme(themeConfig.value, themeConfig.theme);
+        });
+    }
 
     async init(smmWidget) {
         this.smmWidget = smmWidget;
@@ -72,6 +79,8 @@ class SmmRender {
             $smm_container.attr("id", this.smmContainerId);
             this.$widget.insertBefore(this.$widget.parent().find('.mermaid-widget'));
             this.$widget.addClass("scrolling-container");
+            this.$backdrops = this.$widget.find(".smm-backdrops-container");
+            this.$backdrops.insertBefore(this.$widget);
         }
 
         await this.render_mind_data();
@@ -241,12 +250,12 @@ class SmmRender {
             }
         })
 
-        this.$widget.find('#imageBackdrop input[name="imageUrlContent"]').val(imageUrl);
-        this.$widget.find('#imageBackdrop input[name="imageTitleContent"]').val(imageTitle);
-        this.$widget.find('#imageBackdrop').modal('show');
-        this.$widget.find('#imageSave').click(()=>{
-            imageUrl = this.$widget.find('#imageBackdrop input[name="imageUrlContent"]').val();
-            imageTitle = this.$widget.find('#imageBackdrop input[name="imageTitleContent"]').val();
+        this.$backdrops.find('#imageBackdrop input[name="imageUrlContent"]').val(imageUrl);
+        this.$backdrops.find('#imageBackdrop input[name="imageTitleContent"]').val(imageTitle);
+        this.$backdrops.find('#imageBackdrop').modal('show');
+        this.$backdrops.find('#imageSave').click(()=>{
+            imageUrl = this.$backdrops.find('#imageBackdrop input[name="imageUrlContent"]').val();
+            imageTitle = this.$backdrops.find('#imageBackdrop input[name="imageTitleContent"]').val();
             
             let imageWidth = 100;
             let imageHeight = 100;
@@ -258,7 +267,7 @@ class SmmRender {
                     height: imageHeight
                 })
             })
-            this.$widget.find('#imageBackdrop').modal('hide');
+            this.$backdrops.find('#imageBackdrop').modal('hide');
         });
     }
     
@@ -272,16 +281,16 @@ class SmmRender {
             }
         })
 
-        this.$widget.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(hyperlink);
-        this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val(hyperlinkTitle);
-        this.$widget.find('#urlLinkBackdrop').modal('show');
-        this.$widget.find('#urlLinkSave').click(()=>{
-            hyperlink = this.$widget.find('#urlLinkBackdrop input[name="urlLinkContent"]').val();
-            hyperlinkTitle = this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val();
+        this.$backdrops.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(hyperlink);
+        this.$backdrops.find('#urlLinkBackdrop input[name="urlTextContent"]').val(hyperlinkTitle);
+        this.$backdrops.find('#urlLinkBackdrop').modal('show');
+        this.$backdrops.find('#urlLinkSave').click(()=>{
+            hyperlink = this.$backdrops.find('#urlLinkBackdrop input[name="urlLinkContent"]').val();
+            hyperlinkTitle = this.$backdrops.find('#urlLinkBackdrop input[name="urlTextContent"]').val();
             this.activeNodes.forEach(node => {
                 node.setHyperlink(hyperlink, hyperlinkTitle);
             })
-            this.$widget.find('#urlLinkBackdrop').modal('hide');
+            this.$backdrops.find('#urlLinkBackdrop').modal('hide');
         });
     }
     
@@ -292,14 +301,14 @@ class SmmRender {
             if(!!node.getData('note')&&node.getData('note')!=="")
                 content = node.getData('note');
         })
-        this.$widget.find('#remarkBackdrop textarea[name="remarkContent"]').val(content);
-        this.$widget.find('#remarkBackdrop').modal('show');
-        this.$widget.find('#remarkSave').click(()=>{
-            content = this.$widget.find('#remarkBackdrop textarea[name="remarkContent"]').val();
+        this.$backdrops.find('#remarkBackdrop textarea[name="remarkContent"]').val(content);
+        this.$backdrops.find('#remarkBackdrop').modal('show');
+        this.$backdrops.find('#remarkSave').click(()=>{
+            content = this.$backdrops.find('#remarkBackdrop textarea[name="remarkContent"]').val();
             this.activeNodes.forEach(node => {
                 node.setNote(content);
             })
-            this.$widget.find('#remarkBackdrop').modal('hide');
+            this.$backdrops.find('#remarkBackdrop').modal('hide');
         });
     }
     
@@ -455,7 +464,6 @@ class SmmRender {
             this.save_mind_note();
         });
     }
-
     
     open_help_info() {
         let win = window.open(config.HELP_URL, '_blank');

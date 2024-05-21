@@ -13,7 +13,7 @@ var CSS_NOTE_ID_LIST = [];
 const IMAGE_NOTE_TYPE = "svg";
 
 // 是否显示编辑框
-const SHOW_SOURCE = true; //！实验功能，请勿更改此选项
+const SHOW_SOURCE = true; //！实验功能，可能会出现样式错乱
 
 const HELP_URL = "https://github.com/waterovo/trilium-simple-mind-map";
         

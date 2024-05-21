@@ -86,85 +86,87 @@
     </ul>
 </div>
 
-<div class="modal fade" id="imageBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="imageBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageBackdropLabel">图片</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">图片地址</span>
-                    </div>
-                    <input name="imageUrlContent" type="text" class="form-control" placeholder="输入图片地址" />
+<div class="smm-backdrops-container">
+    <div class="modal fade" id="imageBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="imageBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageBackdropLabel">图片</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">图片标题</span>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">图片地址</span>
+                        </div>
+                        <input name="imageUrlContent" type="text" class="form-control" placeholder="输入图片地址" />
                     </div>
-                    <input name="imageTitleContent" type="text" class="form-control" />
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">图片标题</span>
+                        </div>
+                        <input name="imageTitleContent" type="text" class="form-control" />
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                <button type="button" id="imageSave" class="btn btn-primary">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <button type="button" id="imageSave" class="btn btn-primary">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="urlLinkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="urlLinkBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="urlLinkBackdropLabel">超链接</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">链接</span>
-                    </div>
-                    <input name="urlLinkContent" type="text" class="form-control" placeholder="输入URL" />
+    <div class="modal fade" id="urlLinkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="urlLinkBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="urlLinkBackdropLabel">超链接</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">名称</span>
+                <div class="modal-body">
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">链接</span>
+                        </div>
+                        <input name="urlLinkContent" type="text" class="form-control" placeholder="输入URL" />
                     </div>
-                    <input name="urlTextContent" type="text" class="form-control" />
+                    <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">名称</span>
+                        </div>
+                        <input name="urlTextContent" type="text" class="form-control" />
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                <button type="button" id="urlLinkSave" class="btn btn-primary">Save</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <button type="button" id="urlLinkSave" class="btn btn-primary">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="remarkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="remarkBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="remarkBackdropLabel">备注</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <textarea class="form-control" name="remarkContent" rows="3"></textarea>
+    <div class="modal fade" id="remarkBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="remarkBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="remarkBackdropLabel">备注</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                <button type="button" id="remarkSave" class="btn btn-primary">Save</button>
+                <div class="modal-body">
+                    <div class="input-group mb-3">
+                        <textarea class="form-control" name="remarkContent" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <button type="button" id="remarkSave" class="btn btn-primary">Save</button>
+                </div>
             </div>
         </div>
     </div>

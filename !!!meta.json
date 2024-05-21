@@ -9,7 +9,7 @@
 			],
 			"isClone": false,
 			"title": "trilium-simple-mind-map",
-			"notePosition": 300,
+			"notePosition": 310,
 			"prefix": null,
 			"isExpanded": true,
 			"type": "text",
@@ -96,7 +96,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
@@ -164,6 +164,50 @@
 										}
 									],
 									"attachments": []
+								},
+								{
+									"noteId": "ohHksPMhmE6P",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"ohHksPMhmE6P"
+									],
+									"isClone": false,
+									"title": "customThemeList",
+									"notePosition": 50,
+									"prefix": null,
+									"isExpanded": true,
+									"type": "code",
+									"mime": "application/javascript;env=frontend",
+									"dataFileName": "customThemeList.js",
+									"dirFileName": "customThemeList",
+									"noImport": false,
+									"attributes": [],
+									"attachments": [],
+									"children": [
+										{
+											"noteId": "WgPyQtwzZhjO",
+											"notePath": [
+												"clY0NcA8ubmX",
+												"UQudKpJa1KHD",
+												"sQthH2ecpx7n",
+												"ohHksPMhmE6P",
+												"WgPyQtwzZhjO"
+											],
+											"isClone": false,
+											"title": "vcMelon",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "code",
+											"mime": "application/javascript;env=frontend",
+											"dataFileName": "vcMelon.js",
+											"noImport": false,
+											"attributes": [],
+											"attachments": []
+										}
+									]
 								}
 							]
 						},
@@ -334,7 +378,7 @@
 					"title": "static",
 					"notePosition": 60,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
