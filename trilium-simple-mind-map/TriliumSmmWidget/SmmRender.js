@@ -111,7 +111,13 @@ class SmmRender {
             layout: 'logicalStructure'
         });
 
-        this.mindMap.setFullData(JSON.parse(mind_note_data));
+        let mind_note_obj = JSON.parse(mind_note_data);
+        let theme = mind_note_obj.theme.template;
+        if(this.themeList.findIndex(t=>{return t==theme}) === -1){
+            mind_note_obj.theme.template = "classic4";
+            api.showMessage("当前导图笔记的主题不存在，自动更换为默认主题");
+        }
+        this.mindMap.setFullData(mind_note_obj);
 
         // 监听节点激活事件
         this.mindMap.on('node_active', (node, nodeList) => {

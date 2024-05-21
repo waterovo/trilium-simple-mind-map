@@ -41,12 +41,13 @@ class SmmWidget extends api.NoteContextAwareWidget {
     }
     
     renderQuickSearchWidget() {
-        let $modalBody = this.$render.find("#urlLinkBackdrop .modal-body");
+        let $backdrops = this.$render.find(".smm-backdrops-container");
+        let $modalBody = $backdrops.find("#urlLinkBackdrop .modal-body");
         this.qsWidget = new QuickSearchWidget((e, noteLink)=>{
             console.log(e,noteLink);
             if (!e.target || e.target.nodeName !== 'A') {
-                this.$widget.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(noteLink.url);
-                this.$widget.find('#urlLinkBackdrop input[name="urlTextContent"]').val(noteLink.title);
+                $backdrops.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(noteLink.url);
+                $backdrops.find('#urlLinkBackdrop input[name="urlTextContent"]').val(noteLink.title);
             }
         }, false);
         $modalBody.append(this.qsWidget.doRender());
