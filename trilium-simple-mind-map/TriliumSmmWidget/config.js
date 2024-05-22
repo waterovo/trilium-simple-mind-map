@@ -12,6 +12,9 @@ var CSS_NOTE_ID_LIST = [];
 // svg OR png
 const IMAGE_NOTE_TYPE = "svg";
 
+// 左键框选，右键拖动
+const LKSRKD = false;
+
 // 是否显示编辑框
 const SHOW_SOURCE = true; //！实验功能，可能会出现样式错乱
 

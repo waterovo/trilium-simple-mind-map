@@ -9,6 +9,7 @@ class SmmRender {
         this.activeNodes = [];
         this.init_custom_theme();
         this.themeList = Object.keys(MindMap.themes).reverse();
+        this.useLeftKeySelectionRightKeyDrag = config.LKSRKD;
         this.toolbarBtnsRole = {
             "unselected": [
                 {id:'smm_delete_node',enabled:false},
@@ -225,11 +226,13 @@ class SmmRender {
     // 回退
     back() {
         this.mindMap.execCommand('BACK');
+        this.save_mind_note();
     }
 
     // 前进
     forward() {
         this.mindMap.execCommand('FORWARD');
+        this.save_mind_note();
     }
     
     delete_node() {
@@ -371,6 +374,7 @@ class SmmRender {
         });
 
         this.render_smm_export_select();
+        this.render_smm_mouse_select();
         this.render_smm_theme_select();
         this.render_smm_struct_select();
     }
@@ -444,6 +448,21 @@ class SmmRender {
             let exportType = $(e.target).children('option:selected').val();
             this.mindMap.export(exportType, true, this.smmNote.title);
             $(e.target).val("");
+        });
+    }
+    
+    render_smm_mouse_select() {
+        let $mouse_select = this.$widget.find('#smmtools_mouse_select select');
+        
+        $mouse_select.on('change', (e) => {
+            if($(e.target).children('option:selected').val()=="0"){
+                this.useLeftKeySelectionRightKeyDrag = false;
+            }else{
+                this.useLeftKeySelectionRightKeyDrag = true;
+            }
+            this.mindMap.updateConfig({
+                useLeftKeySelectionRightKeyDrag: this.useLeftKeySelectionRightKeyDrag
+           });
         });
     }
 

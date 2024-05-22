@@ -39,6 +39,7 @@ class CopyImageReferenceButton extends api.NoteContextAwareWidget {
                 );
 
                 utils.copyImageReferenceToClipboard(this.$hiddenImageCopy);
+                api.showMessage("记得保存图像子笔记，以保持图像引用最新！");
                 this.$hiddenImageCopy.empty();
             });
         });
