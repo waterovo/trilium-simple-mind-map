@@ -8,6 +8,7 @@
             <div class="smm-toolbar-btn" id="smm_insert_child_node"><span class="bx bx-sitemap icon iconfont"></span><span class="text">子节点</span></div>
             <div class="smm-toolbar-btn" id="smm_delete_node"><span class="bx bx-trash icon iconfont"></span><span class="text">删除节点</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_image"><span class="bx bx-image icon iconfont"></span><span class="text">图片</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_icon"><span class="bx bx-smile icon iconfont"></span><span class="text">图标</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_url"><span class="bx bx-link icon iconfont"></span><span class="text">超链接</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_remark"><span class="bx bx-detail icon iconfont"></span><span class="text">备注</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_ga"><span class="bx bxs-dashboard icon iconfont"></span><span class="text">概要</span></div>
@@ -55,7 +56,7 @@
         </li>
         <li id="smmtools_save_imagenote" class="menu-item action-trigger">
             <span class="bx bx-image-add" />
-            <span class="menu-text">Save image note</span>
+            <span class="menu-text">Save Image Attachment</span>
         </li>
         <li class="menu-item menu-divider" />
         <li id="smmtools_mouse_select" class="menu-item">
@@ -174,6 +175,24 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                     <button type="button" id="remarkSave" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="iconListBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="iconListBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="iconListBackdropLabel">图标</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@ class CopyImageReferenceButton extends api.NoteContextAwareWidget {
             let searchString = `#${config.NOTE_LABEL_ATTACHMENT} AND note.parents.noteId='${this.note.noteId}' AND note.title=*'${config.IMAGE_NOTE_TITLE}' orderBy note.dateModified desc`;
             utils.getImageNote(searchString).then((res) => {
                 if(!res){
-                    api.showMessage("复制图像引用失败，请先保存图像笔记！");
+                    api.showMessage("复制图像引用失败，请先保存图像附件！");
                     return;
                 }
                 this.$hiddenImageCopy.empty().append(
@@ -39,7 +39,7 @@ class CopyImageReferenceButton extends api.NoteContextAwareWidget {
                 );
 
                 utils.copyImageReferenceToClipboard(this.$hiddenImageCopy);
-                api.showMessage("记得保存图像子笔记，以保持图像引用最新！");
+                api.showMessage("记得保存图像附件，以保持图像引用最新！");
                 this.$hiddenImageCopy.empty();
             });
         });

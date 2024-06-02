@@ -9,9 +9,9 @@
 			],
 			"isClone": false,
 			"title": "trilium-simple-mind-map",
-			"notePosition": 310,
+			"notePosition": 320,
 			"prefix": null,
-			"isExpanded": false,
+			"isExpanded": true,
 			"type": "text",
 			"mime": "text/html",
 			"format": "html",
@@ -30,7 +30,7 @@
 					"title": "TriliumSmmWidget",
 					"notePosition": 20,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "code",
 					"mime": "application/javascript;env=frontend",
 					"dataFileName": "TriliumSmmWidget.js",
@@ -229,6 +229,25 @@
 							"noImport": false,
 							"attributes": [],
 							"attachments": []
+						},
+						{
+							"noteId": "pKfYiJnbuQzC",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"pKfYiJnbuQzC"
+							],
+							"isClone": false,
+							"title": "SmmIconWidget",
+							"notePosition": 50,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "SmmIconWidget.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
 						}
 					]
 				},
@@ -378,7 +397,7 @@
 					"title": "static",
 					"notePosition": 60,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",

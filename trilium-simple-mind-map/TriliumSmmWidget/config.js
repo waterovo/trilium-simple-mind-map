@@ -12,6 +12,9 @@ var CSS_NOTE_ID_LIST = [];
 // svg OR png
 const IMAGE_NOTE_TYPE = "svg";
 
+// attachement OR note
+const EXPORT_TYPE = "note";
+
 // 左键框选，右键拖动
 const LKSRKD = false;
 

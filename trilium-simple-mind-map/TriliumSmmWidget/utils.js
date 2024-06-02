@@ -84,6 +84,42 @@ async function createImageNote(parentNoteId, title, fileType, content) {
         imageNote.save();
     }, [parentNoteId, title, fileType, content]);
 }
+
+async function createImageAttachment(parentNoteId, title, fileType, content) {
+    const noteId = await api.runOnBackend((parentNoteId, title, fileType, content) => {
+        const parentNote = api.getNote(parentNoteId);
+        let attachment = parentNote.getAttachmentByTitle(title);
+        let imageData = Buffer.from(content.replace(/^data:image\/[a-zA-Z+]+;base64,/, ''), 'base64');
+        function getExtensionFromBase64(base64) {
+            let re = new RegExp('data:image/(?<ext>.*?);base64,.*')
+            let res = re.exec(base64)
+            if (res) {
+                return res.groups.ext
+            }
+        }
+        const imageType = getExtensionFromBase64(content);
+        
+        if (fileType === 'svg') {
+            imageData = imageData.toString('utf-8');
+        }
+        
+        if(!attachment){
+            const attachment = parentNote.saveAttachment({
+                role: 'image',
+                mime: `image/${imageType}`,
+                title: title,
+                content: imageData
+            });
+            attachment.utcDateScheduledForErasureSince = null;
+            attachment.save();
+        }else{
+            api.log(attachment.attachmentId);
+            attachment.setContent(imageData);
+            attachment.utcDateScheduledForErasureSince = null;
+            attachment.save();
+        }
+    }, [parentNoteId, title, fileType, content]);
+}
 module.exports = {
     getNoteConetntList,
     getData,
@@ -91,5 +127,6 @@ module.exports = {
     setRelation,
     setLabel,
     createDataNote,
-    createImageNote
+    createImageNote,
+    createImageAttachment
 }

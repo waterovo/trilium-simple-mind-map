@@ -38,13 +38,15 @@ class SmmWidget extends api.NoteContextAwareWidget {
         this.renderQuickSearchWidget();
         this.smmRender = new SmmRender();
         await this.smmRender.init(this);
+        
+        this.smmRender.register_backdrop([{id:"iconListBackdrop",obj:new SmmIconWidget(this.smmRender, (name)=>{console.log(name, this.smmRender.activeNodes);})
+        }]);
     }
     
     renderQuickSearchWidget() {
         let $backdrops = this.$render.find(".smm-backdrops-container");
         let $modalBody = $backdrops.find("#urlLinkBackdrop .modal-body");
         this.qsWidget = new QuickSearchWidget((e, noteLink)=>{
-            console.log(e,noteLink);
             if (!e.target || e.target.nodeName !== 'A') {
                 $backdrops.find('#urlLinkBackdrop input[name="urlLinkContent"]').val(noteLink.url);
                 $backdrops.find('#urlLinkBackdrop input[name="urlTextContent"]').val(noteLink.title);

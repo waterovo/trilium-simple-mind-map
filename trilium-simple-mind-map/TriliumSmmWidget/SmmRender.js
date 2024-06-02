@@ -9,6 +9,7 @@ class SmmRender {
         this.activeNodes = [];
         this.init_custom_theme();
         this.themeList = Object.keys(MindMap.themes).reverse();
+        this.iconList = MindMap.iconList;
         this.useLeftKeySelectionRightKeyDrag = config.LKSRKD;
         this.toolbarBtnsRole = {
             "unselected": [
@@ -17,6 +18,7 @@ class SmmRender {
                 {id:'smm_insert_child_node',enabled:false},
                 {id:'smm_insert_image',enabled:false},
                 {id:'smm_insert_url',enabled:false},
+                {id:'smm_insert_icon',enabled:false},
                 {id:'smm_insert_remark',enabled:false},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:false},
@@ -27,6 +29,7 @@ class SmmRender {
                 {id:'smm_insert_child_node',enabled:true},
                 {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
+                {id:'smm_insert_icon',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:true},
@@ -37,6 +40,7 @@ class SmmRender {
                 {id:'smm_insert_child_node',enabled:true},
                 {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
+                {id:'smm_insert_icon',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:true},
                 {id:'smm_insert_relation_line',enabled:true},
@@ -47,6 +51,7 @@ class SmmRender {
                 {id:'smm_insert_child_node',enabled:false},
                 {id:'smm_insert_image',enabled:true},
                 {id:'smm_insert_url',enabled:true},
+                {id:'smm_insert_icon',enabled:true},
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:false},
@@ -80,8 +85,6 @@ class SmmRender {
             $smm_container.attr("id", this.smmContainerId);
             this.$widget.insertBefore(this.$widget.parent().find('.mermaid-widget'));
             this.$widget.addClass("scrolling-container");
-            this.$backdrops = this.$widget.find(".smm-backdrops-container");
-            this.$backdrops.insertBefore(this.$widget);
         }
 
         await this.render_mind_data();
@@ -89,6 +92,15 @@ class SmmRender {
         this.toolbar_render();
         this.register_toolbar_event();
         this.register_smmtools();
+    }
+    
+    register_backdrop(backdropWidgets){
+        this.$backdrops = this.$widget.find(".smm-backdrops-container");
+        this.$backdrops.insertBefore(this.$widget);
+        for(const widget of backdropWidgets){
+            let $modalBody = this.$backdrops.find(`#${widget.id} .modal-body`);
+            $modalBody.append(widget.obj.doRender());
+        }
     }
 
     async render_mind_data() {
@@ -218,6 +230,7 @@ class SmmRender {
         this.$widget.find('.smm-toolbar-btn#smm_insert_child_node').click(()=>this.insert_child_node());
         this.$widget.find('.smm-toolbar-btn#smm_insert_image').click(()=>this.insert_image());
         this.$widget.find('.smm-toolbar-btn#smm_insert_url').click(()=>this.insert_url());
+        this.$widget.find('.smm-toolbar-btn#smm_insert_icon').click(()=>this.insert_icon());
         this.$widget.find('.smm-toolbar-btn#smm_insert_remark').click(()=>this.insert_remark());
         this.$widget.find('.smm-toolbar-btn#smm_insert_ga').click(()=>this.insert_ga());
         this.$widget.find('.smm-toolbar-btn#smm_insert_relation_line').click(()=>this.insert_relation_line());
@@ -303,6 +316,26 @@ class SmmRender {
         });
     }
     
+    insert_icon() {
+        let iconList = [];
+        if (this.activeNodes.length > 0) {
+            if (this.activeNodes.length === 1) {
+                let firstNode = this.activeNodes[0]
+                iconList = firstNode.getData('icon') || [];
+            }
+        }
+        this.set_icon_selected(iconList);
+        this.$backdrops.find('#iconListBackdrop').modal('show');
+    }
+    
+    set_icon_selected(iconList) {
+        this.$backdrops.find(`.icon-box .icon-list .icon`).removeClass("selected");
+        for(const name of iconList){
+            let $icon = this.$backdrops.find(`.icon-box .icon-list .icon[name="${name}"]`);
+            $icon.addClass("selected");
+        }
+    }
+    
     // 插入备注
     insert_remark() {
         let content = "";
@@ -363,9 +396,15 @@ class SmmRender {
         $smmtools_save_imagenote.click(() => {
             let fileType = config.IMAGE_NOTE_TYPE;
             this.mindMap.export(fileType, false).then((content)=>{
-                utils.createImageNote(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
-                    api.showMessage("图像已经创建成功了！");
-                });
+                if(config.EXPORT_TYPE === 'note'){
+                    utils.createImageNote(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
+                        api.showMessage("图像笔记已经创建成功了！");
+                    });
+                }else{
+                    utils.createImageAttachment(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
+                        api.showMessage("图像附件已经创建成功了！");
+                    });
+                }
             });
         });
 
