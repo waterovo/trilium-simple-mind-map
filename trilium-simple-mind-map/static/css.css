@@ -14,7 +14,7 @@
     top: 0;
     left: 0;
     margin: auto;
-    z-index: 2;
+    z-index: 200;
 }
 
 .smm-render {
@@ -52,7 +52,6 @@
     width: max-content;
     display: flex;
     font-size: 12px;
-    font-family: PingFangSC-Regular, PingFang SC;
     font-weight: 400;
     color: rgba(26, 26, 26, 0.8);
     z-index: 3;
@@ -184,7 +183,7 @@
     opacity: 0.4;
     cursor: default;
     user-select: none;
-    font-family: "Microsoft YaHei", simhei, STHeiTi, sans-serif, Verdana;
+    font-family: "Microsoft YaHei", sans-serif, Verdana;
     vertical-align: middle;
 }
 
@@ -233,4 +232,15 @@
 
 .smm-render .menu-item:hover .menu {
     display: block;
+}
+
+.smm-render.full{
+    position:fixed !important;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100% !important;
 }

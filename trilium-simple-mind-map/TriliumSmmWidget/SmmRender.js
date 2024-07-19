@@ -420,9 +420,11 @@ class SmmRender {
 
     switch_fullscreen_button = () => {
         if(is_page_fullscreen()){
+            this.smmWidget.$render.addClass("full");
             this.$widget.find('#smmtools_enter_fullscreen').addClass('hidden-ext');
             this.$widget.find('#smmtools_exit_fullscreen').removeClass('hidden-ext');
         }else{
+            this.smmWidget.$render.removeClass("full");
             this.$widget.find('#smmtools_enter_fullscreen').removeClass('hidden-ext');
             this.$widget.find('#smmtools_exit_fullscreen').addClass('hidden-ext');
         }
@@ -433,7 +435,7 @@ class SmmRender {
     
         // 全屏点击事件
         this.$widget.find('#smmtools_enter_fullscreen').click(() => {
-            var elem = this.smmWidget.$render.get(0);
+            var elem = document.body;
             full_screen(elem);
         });
         

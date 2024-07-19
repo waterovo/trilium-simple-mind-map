@@ -56,7 +56,9 @@ class SmmWidget extends api.NoteContextAwareWidget {
     }
     
     async refreshWithNote(note) {
-        await this.refreshWidget();
+        $(document).ready(async()=>{
+            await this.refreshWidget();
+        });
     }
     
     async refreshWidget() {

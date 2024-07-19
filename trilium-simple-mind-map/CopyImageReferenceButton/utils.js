@@ -29,6 +29,10 @@ function createImageSrcUrl(noteId, title) {
     return `api/images/${noteId}/${encodeURIComponent(title)}?timestamp=${Date.now()}`;
 }
 
+function createImageAttachmentSrcUrl(attachmentId, title){
+    return `api/attachments/${attachmentId}/image/${encodeURIComponent(title)}?timestamp=${Date.now()}`;
+}
+
 async function getImageNote(searchString) {
     return await api.runOnBackend((searchString) => {
         let imageNote = api.searchForNote(searchString);
@@ -36,8 +40,18 @@ async function getImageNote(searchString) {
     }, [searchString]);
 }
 
+async function getImageAttachment(parentNodeId, attachmentTitle) {
+    return await api.runAsyncOnBackendWithManualTransactionHandling(async(parentNodeId, attachmentTitle) => {
+        let note = await api.getNote(parentNodeId);
+        let imageAttachment = note.getAttachmentByTitle(attachmentTitle);
+        return imageAttachment;
+    }, [parentNodeId, attachmentTitle]);
+}
+
 module.exports = {
     copyImageReferenceToClipboard,
     createImageSrcUrl,
-    getImageNote
+    getImageNote,
+    createImageAttachmentSrcUrl,
+    getImageAttachment
 };

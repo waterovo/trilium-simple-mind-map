@@ -13,7 +13,7 @@ var CSS_NOTE_ID_LIST = [];
 const IMAGE_NOTE_TYPE = "svg";
 
 // attachement OR note
-const EXPORT_TYPE = "note";
+const EXPORT_TYPE = "note"; //！attachement为实验功能，暂时无法适配复制按钮
 
 // 左键框选，右键拖动
 const LKSRKD = false;
@@ -32,6 +32,7 @@ module.exports = {
     SMM_TPL_NOTE_ID,
     CSS_NOTE_ID_LIST,
     IMAGE_NOTE_TYPE,
+    EXPORT_TYPE,
     SHOW_SOURCE,
     HELP_URL
 }
