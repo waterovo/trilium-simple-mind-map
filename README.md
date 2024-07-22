@@ -18,4 +18,4 @@ Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.6
 3. 旧版本中【simple-mind-map】笔记包含的模板数据可按需保留或修改，其余笔记或数据删除不影响插件，如果确认已经不再需要旧版本，可以进行删除
 ### 使用
 #### 如何新建思维导图笔记
-1. 在插入子笔记的菜单中可以看到simple-mind-map选项，参考[](https://github.com/zadam/trilium/wiki/Template#instance-note)
+1. 在插入子笔记的菜单中可以看到simple-mind-map选项，参考[Template · zadam/trilium Wiki](https://github.com/zadam/trilium/wiki/Template#instance-note)
