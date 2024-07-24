@@ -1,6 +1,8 @@
 ## trilium-simple-mind-map
 ### 预览
-![image](https://github.com/waterovo/trilium-sample-mind-map/assets/61768530/4fa93e38-c9dc-4dd4-993d-9130de09db46)
+![image](https://github.com/user-attachments/assets/292b6fbc-353f-418c-9142-f55f7228bb57)
+
+
 Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.63.7）
 
 *注意*：近期在使用过程中偶发数据丢失，只留下了根节点数据，暂时未排查到原因，请及时使用trilium的【保存笔记历史】功能对思维导图笔记进行备份，以防数据丢失。
