@@ -2,17 +2,17 @@
 <div class="smm-toolbar">
     <div class="smm-toolbar-block">
         <div class="smm-toolbar-btn-list">
-            <div class="smm-toolbar-btn" id="smm_back"><span class="bx bx-undo icon iconfont"></span><span class="text">回退</span></div>
-            <div class="smm-toolbar-btn" id="smm_forward"><span class="bx bx-redo icon iconfont"></span><span class="text">前进</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_node"><span class="bx bx-git-branch icon iconfont"></span><span class="text">同级节点</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_child_node"><span class="bx bx-sitemap icon iconfont"></span><span class="text">子节点</span></div>
-            <div class="smm-toolbar-btn" id="smm_delete_node"><span class="bx bx-trash icon iconfont"></span><span class="text">删除节点</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_image"><span class="bx bx-image icon iconfont"></span><span class="text">图片</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_icon"><span class="bx bx-smile icon iconfont"></span><span class="text">图标</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_url"><span class="bx bx-link icon iconfont"></span><span class="text">超链接</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_remark"><span class="bx bx-detail icon iconfont"></span><span class="text">备注</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_ga"><span class="bx bxs-dashboard icon iconfont"></span><span class="text">概要</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_relation_line"><span class="bx bx-git-compare icon iconfont"></span><span class="text">关联线</span></div>
+            <div class="smm-toolbar-btn" id="smm_back"><span class="bx bx-undo icon iconfont"></span><span class="text">${config.lang.toolbar.undo}</span></div>
+            <div class="smm-toolbar-btn" id="smm_forward"><span class="bx bx-redo icon iconfont"></span><span class="text">${config.lang.toolbar.redo}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_node"><span class="bx bx-git-branch icon iconfont"></span><span class="text">${config.lang.toolbar.insertSiblingNode}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_child_node"><span class="bx bx-sitemap icon iconfont"></span><span class="text">${config.lang.toolbar.insertChildNode}</span></div>
+            <div class="smm-toolbar-btn" id="smm_delete_node"><span class="bx bx-trash icon iconfont"></span><span class="text">${config.lang.toolbar.deleteNode}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_image"><span class="bx bx-image icon iconfont"></span><span class="text">${config.lang.toolbar.image}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_icon"><span class="bx bx-smile icon iconfont"></span><span class="text">${config.lang.toolbar.icon}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_url"><span class="bx bx-link icon iconfont"></span><span class="text">${config.lang.toolbar.link}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_remark"><span class="bx bx-detail icon iconfont"></span><span class="text">${config.lang.toolbar.note}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_ga"><span class="bx bxs-dashboard icon iconfont"></span><span class="text">${config.lang.toolbar.summary}</span></div>
+            <div class="smm-toolbar-btn" id="smm_insert_relation_line"><span class="bx bx-git-compare icon iconfont"></span><span class="text">${config.lang.toolbar.associativeLine}</span></div>
         </div>
     </div>
 </div>
@@ -21,31 +21,31 @@
     <ul class="menu">
         <li id="smmtools_menu" class="menu-item action-trigger title">
             <span class="bx bx-menu" />
-            <span class="menu-text">Menu</span>
+            <span class="menu-text">${config.lang.tools.menu}</span>
         </li>
         <li class="menu-item menu-divider" />
         <li id="smmtools_enter_fullscreen" class="menu-item action-trigger">
             <span class="bx bx-fullscreen" />
-            <span class="menu-text">Enter Full Screen</span>
+            <span class="menu-text">${config.lang.tools.enterFullScreen}</span>
         </li>
         <li id="smmtools_exit_fullscreen" class="menu-item action-trigger">
             <span class="bx bx-exit-fullscreen" />
-            <span class="menu-text">Exit Full Screen</span>
+            <span class="menu-text">${config.lang.tools.exitFullScreen}</span>
         </li>
         <li id="smmtools_enter_fulltab" class="menu-item action-trigger">
             <span class="bx bx-expand-alt" />
-            <span class="menu-text">Enter Full Tab</span>
+            <span class="menu-text">${config.lang.tools.enterFullTab}</span>
         </li>
         <li id="smmtools_exit_fulltab" class="menu-item action-trigger">
             <span class="bx bx-collapse-alt" />
-            <span class="menu-text">Exit Full Tab</span>
+            <span class="menu-text">${config.lang.tools.exitFullTab}</span>
         </li>
         <li class="menu-item menu-divider" />
         <li id="smmtools_export" class="menu-item action-trigger">
             <span class="bx bx-export" />
-            <span class="menu-text">Export File</span>
+            <span class="menu-text">${config.lang.tools.exportFile}</span>
             <select>
-                <option value="">选择导出类型</option>
+                <option value="">${config.lang.tools.selectExportType}</option>
                 <option value="png">.png</option>
                 <option value="json">.json</option>
                 <option value="svg">.svg</option>
@@ -56,41 +56,41 @@
         </li>
         <li id="smmtools_save_imagenote" class="menu-item action-trigger">
             <span class="bx bx-image-add" />
-            <span class="menu-text">Save Image Attachment</span>
+            <span class="menu-text">${config.lang.tools.saveAttachment}</span>
         </li>
         <li class="menu-item menu-divider" />
         <li id="smmtools_mouse_select" class="menu-item">
             <span class="bx bx-mouse-alt" />
-            <span class="menu-text">Selection</span>
-            <select>
-                <option value="0">左键拖动，右键框选</option>
-                <option value="1">左键框选，右键拖动</option>
+            <span class="menu-text">${config.lang.tools.selection}</span>
+            <select style="max-width:180px;">
+                <option value="0">${config.lang.tools.mouseRightSelect}</option>
+                <option value="1">${config.lang.tools.mouseLeftSelect}</option>
             </select>
         </li>
         <li id="smmtools_struct" class="menu-item">
             <span class="bx bx-grid-alt" />
-            <span class="menu-text">Structure</span>
+            <span class="menu-text">${config.lang.tools.structure}</span>
             <select>
-                <option value="logicalStructure">逻辑结构图</option>
-                <option value="mindMap">思维导图</option>
-                <option value="organizationStructure">组织结构图</option>
-                <option value="catalogOrganization">目录组织图</option>
-                <option value="timeline">时间轴</option>
-                <option value="timeline2">时间轴2</option>
-                <option value="fishbone">鱼骨图</option>
-                <option value="verticalTimeline">竖向时间轴</option>
+                <option value="logicalStructure">${config.lang.tools.logicalStructure}</option>
+                <option value="mindMap">${config.lang.tools.mindMap}</option>
+                <option value="organizationStructure">${config.lang.tools.organizationStructure}</option>
+                <option value="catalogOrganization">${config.lang.tools.catalogOrganization}</option>
+                <option value="timeline">${config.lang.tools.timeline}</option>
+                <option value="timeline2">${config.lang.tools.timeline2}</option>
+                <option value="fishbone">${config.lang.tools.fishbone}</option>
+                <option value="verticalTimeline">${config.lang.tools.verticalTimeline}</option>
             </select>
         </li>
         <li id="smmtools_theme" class="menu-item">
             <span class="bx bx-palette" />
-            <span class="menu-text">Theme</span>
+            <span class="menu-text">${config.lang.tools.theme}</span>
             <select>
             </select>
         </li>
         <li class="menu-item menu-divider" />
         <li id="smmtools_help" class="menu-item action-trigger">
             <span class="bx bx-help-circle" />
-            <span class="menu-text">Help</span>
+            <span class="menu-text">${config.lang.tools.help}</span>
         </li>
     </ul>
 </div>
@@ -100,7 +100,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="imageBackdropLabel">图片</h5>
+                    <h5 class="modal-title" id="imageBackdropLabel">${config.lang.backdrops.imageOnTitle}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -108,20 +108,20 @@
                 <div class="modal-body">
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">图片地址</span>
+                            <span class="input-group-text">${config.lang.backdrops.imageUrl}</span>
                         </div>
-                        <input name="imageUrlContent" type="text" class="form-control" placeholder="输入图片地址" />
+                        <input name="imageUrlContent" type="text" class="form-control" placeholder="${config.lang.backdrops.imageUrlPlaceholder}" />
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">图片标题</span>
+                            <span class="input-group-text">${config.lang.backdrops.imageTitle}</span>
                         </div>
                         <input name="imageTitleContent" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                    <button type="button" id="imageSave" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">${config.lang.backdrops.close}</button>
+                    <button type="button" id="imageSave" class="btn btn-primary">${config.lang.backdrops.save}</button>
                 </div>
             </div>
         </div>
@@ -131,7 +131,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="urlLinkBackdropLabel">超链接</h5>
+                    <h5 class="modal-title" id="urlLinkBackdropLabel">${config.lang.backdrops.linkOnTitle}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -139,20 +139,20 @@
                 <div class="modal-body">
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">链接</span>
+                            <span class="input-group-text">${config.lang.backdrops.linkUrl}</span>
                         </div>
-                        <input name="urlLinkContent" type="text" class="form-control" placeholder="输入URL" />
+                        <input name="urlLinkContent" type="text" class="form-control" placeholder="${config.lang.backdrops.linkUrlPlaceholder}" />
                     </div>
                     <div class="input-group input-group-sm mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">名称</span>
+                            <span class="input-group-text">${config.lang.backdrops.linkName}</span>
                         </div>
                         <input name="urlTextContent" type="text" class="form-control" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                    <button type="button" id="urlLinkSave" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">${config.lang.backdrops.close}</button>
+                    <button type="button" id="urlLinkSave" class="btn btn-primary">${config.lang.backdrops.save}</button>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="remarkBackdropLabel">备注</h5>
+                    <h5 class="modal-title" id="remarkBackdropLabel">${config.lang.backdrops.remarkOnTitle}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -173,8 +173,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                    <button type="button" id="remarkSave" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">${config.lang.backdrops.close}</button>
+                    <button type="button" id="remarkSave" class="btn btn-primary">${config.lang.backdrops.save}</button>
                 </div>
             </div>
         </div>
@@ -184,7 +184,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="iconListBackdropLabel">图标</h5>
+                    <h5 class="modal-title" id="iconListBackdropLabel">${config.lang.backdrops.iconOnTitle}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -192,7 +192,7 @@
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">${config.lang.backdrops.close}</button>
                 </div>
             </div>
         </div>

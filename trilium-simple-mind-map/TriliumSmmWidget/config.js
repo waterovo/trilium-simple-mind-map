@@ -1,5 +1,5 @@
 // 用于插件版本区分
-const SMM_WDIGET_VERSION = "v1.0.0";
+const SMM_WDIGET_VERSION = "v1.1.0";
 
 // 获取template笔记ID
 const templateNote = await api.searchForNote(`#smmWidgetTemplate AND note.parents.labels.smmWidgetVersion="${SMM_WDIGET_VERSION}"`);
@@ -7,6 +7,7 @@ const SMM_TPL_NOTE_ID = templateNote.noteId;
 
 // 获取css笔记ID
 const cssNotesQuery = await api.searchForNotes(`#smmWidgetCss AND note.parents.labels.smmWidgetVersion="${SMM_WDIGET_VERSION}"`);
+
 var CSS_NOTE_ID_LIST = [];
 
 // svg OR png
@@ -19,7 +20,12 @@ const EXPORT_TYPE = "note"; //！attachement为实验功能，暂时无法适配
 const LKSRKD = false;
 
 // 是否显示编辑框
-const SHOW_SOURCE = true; //！实验功能，可能会出现样式错乱
+const SHOW_SOURCE = false; //！实验功能，可能会出现样式错乱
+
+//zh_cn,en_us
+const LANGUAGE = 'zh_cn';
+
+const lang = language[LANGUAGE];
 
 const HELP_URL = "https://github.com/waterovo/trilium-simple-mind-map";
         
@@ -34,5 +40,6 @@ module.exports = {
     IMAGE_NOTE_TYPE,
     EXPORT_TYPE,
     SHOW_SOURCE,
-    HELP_URL
+    HELP_URL,
+    lang
 }

@@ -1,4 +1,5 @@
 let TPL = await utils.getData(config.SMM_TPL_NOTE_ID);
+TPL = eval('`'+TPL+'`');
 let styles = ``;
 let cssArr = await utils.getNoteConetntList(config.CSS_NOTE_ID_LIST);
 for (const cssData of cssArr) {

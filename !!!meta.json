@@ -58,13 +58,81 @@
 							"title": "config",
 							"notePosition": 10,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "config.js",
+							"dirFileName": "config",
 							"noImport": false,
 							"attributes": [],
-							"attachments": []
+							"attachments": [],
+							"children": [
+								{
+									"noteId": "I7mZFeZhPs5k",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"lF9ps1Nmyl5W",
+										"I7mZFeZhPs5k"
+									],
+									"isClone": false,
+									"title": "language",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": true,
+									"type": "code",
+									"mime": "application/javascript;env=frontend",
+									"dataFileName": "language.js",
+									"dirFileName": "language",
+									"noImport": false,
+									"attributes": [],
+									"attachments": [],
+									"children": [
+										{
+											"noteId": "jspGqvHxUPPs",
+											"notePath": [
+												"clY0NcA8ubmX",
+												"UQudKpJa1KHD",
+												"lF9ps1Nmyl5W",
+												"I7mZFeZhPs5k",
+												"jspGqvHxUPPs"
+											],
+											"isClone": false,
+											"title": "zh_cn",
+											"notePosition": 10,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "code",
+											"mime": "application/javascript;env=frontend",
+											"dataFileName": "zh_cn.js",
+											"noImport": false,
+											"attributes": [],
+											"attachments": []
+										},
+										{
+											"noteId": "QAAgRXLLD627",
+											"notePath": [
+												"clY0NcA8ubmX",
+												"UQudKpJa1KHD",
+												"lF9ps1Nmyl5W",
+												"I7mZFeZhPs5k",
+												"QAAgRXLLD627"
+											],
+											"isClone": false,
+											"title": "en_us",
+											"notePosition": 20,
+											"prefix": null,
+											"isExpanded": false,
+											"type": "code",
+											"mime": "application/javascript;env=frontend",
+											"dataFileName": "en_us.js",
+											"noImport": false,
+											"attributes": [],
+											"attachments": []
+										}
+									]
+								}
+							]
 						},
 						{
 							"noteId": "qRNv8X9WMTl6",
@@ -177,7 +245,7 @@
 									"title": "customThemeList",
 									"notePosition": 50,
 									"prefix": null,
-									"isExpanded": true,
+									"isExpanded": false,
 									"type": "code",
 									"mime": "application/javascript;env=frontend",
 									"dataFileName": "customThemeList.js",
@@ -328,13 +396,21 @@
 					"title": "SmmLinkRender",
 					"notePosition": 40,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "code",
 					"mime": "application/javascript;env=frontend",
 					"dataFileName": "SmmLinkRender.js",
 					"dirFileName": "SmmLinkRender",
 					"noImport": false,
-					"attributes": [],
+					"attributes": [
+						{
+							"type": "label",
+							"name": "widget",
+							"value": "",
+							"isInheritable": false,
+							"position": 10
+						}
+					],
 					"attachments": [],
 					"children": [
 						{
@@ -380,14 +456,14 @@
 						"mX7as1JcvBct"
 					],
 					"isClone": false,
-					"title": "模板",
+					"title": "NoteTemplate",
 					"notePosition": 50,
 					"prefix": null,
 					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
-					"dirFileName": "模板",
+					"dirFileName": "NoteTemplate",
 					"noImport": false,
 					"attributes": [],
 					"attachments": [],
@@ -452,7 +528,7 @@
 					"title": "static",
 					"notePosition": 70,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -462,7 +538,7 @@
 						{
 							"type": "label",
 							"name": "smmWidgetVersion",
-							"value": "v1.0.0",
+							"value": "v1.1.0",
 							"isInheritable": false,
 							"position": 10
 						}
