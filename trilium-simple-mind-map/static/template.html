@@ -12,7 +12,18 @@
             <div class="smm-toolbar-btn" id="smm_insert_url"><span class="bx bx-link icon iconfont"></span><span class="text">${config.lang.toolbar.link}</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_remark"><span class="bx bx-detail icon iconfont"></span><span class="text">${config.lang.toolbar.note}</span></div>
             <div class="smm-toolbar-btn" id="smm_insert_ga"><span class="bx bxs-dashboard icon iconfont"></span><span class="text">${config.lang.toolbar.summary}</span></div>
-            <div class="smm-toolbar-btn" id="smm_insert_relation_line"><span class="bx bx-git-compare icon iconfont"></span><span class="text">${config.lang.toolbar.associativeLine}</span></div>
+        </div>
+        
+        <div class="dropdown">
+            <div class="smm-toolbar-btn dropdown-toggle" id="smm_more_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-left: 20px;">
+                <span class="bx bxs-shapes icon iconfont"></span><span class="text">${config.lang.toolbar.more}</span>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="smm_more_dropdown">
+                <div class="smm-toolbar-btn-list v">
+                    <div class="smm-toolbar-btn" id="smm_insert_relation_line"><span class="bx bx-git-compare icon iconfont"></span><span class="text">${config.lang.toolbar.associativeLine}</span></div>
+                    <div class="smm-toolbar-btn" id="smm_add_outer_frame"><span class="bx bx-border-none icon iconfont"></span><span class="text">${config.lang.toolbar.outerFrame}</span></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -72,6 +83,7 @@
             <span class="menu-text">${config.lang.tools.structure}</span>
             <select>
                 <option value="logicalStructure">${config.lang.tools.logicalStructure}</option>
+                <option value="logicalStructureLeft">${config.lang.tools.logicalStructureLeft}</option>
                 <option value="mindMap">${config.lang.tools.mindMap}</option>
                 <option value="organizationStructure">${config.lang.tools.organizationStructure}</option>
                 <option value="catalogOrganization">${config.lang.tools.catalogOrganization}</option>
@@ -195,6 +207,13 @@
                     <button type="button" class="btn btn-light" data-dismiss="modal">${config.lang.backdrops.close}</button>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<div class="smm-components-container">
+    <div id="nodeOuterFrameContainer">
+        <div class="smm-outer-frame-btn" id="smm_delete_outer_frame">
+            <span class="bx bx-trash iconfont"></span>
         </div>
     </div>
 </div>

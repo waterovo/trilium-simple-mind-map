@@ -8,7 +8,7 @@ class SmmRender {
         this.initialized = false;
         this.activeNodes = [];
         this.init_custom_theme();
-        this.themeList = Object.keys(MindMap.themes).reverse();
+        this.themeList = [...themeList, ...customThemeList].reverse();
         this.iconList = MindMap.iconList;
         this.useLeftKeySelectionRightKeyDrag = config.LKSRKD;
         this.toolbarBtnsRole = {
@@ -22,6 +22,7 @@ class SmmRender {
                 {id:'smm_insert_remark',enabled:false},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:false},
+                {id:'smm_add_outer_frame',enabled:false},
             ],
             "root": [
                 {id:'smm_delete_node',enabled:true},
@@ -33,6 +34,7 @@ class SmmRender {
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:true},
+                {id:'smm_add_outer_frame',enabled:true},
             ],
             "node": [
                 {id:'smm_delete_node',enabled:true},
@@ -44,6 +46,7 @@ class SmmRender {
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:true},
                 {id:'smm_insert_relation_line',enabled:true},
+                {id:'smm_add_outer_frame',enabled:true},
             ],
             "generalization": [
                 {id:'smm_delete_node',enabled:true},
@@ -55,6 +58,7 @@ class SmmRender {
                 {id:'smm_insert_remark',enabled:true},
                 {id:'smm_insert_ga',enabled:false},
                 {id:'smm_insert_relation_line',enabled:false},
+                {id:'smm_add_outer_frame',enabled:false},
             ],
         };
     }
@@ -91,6 +95,7 @@ class SmmRender {
         
         this.toolbar_render();
         this.register_toolbar_event();
+        this.register_components_event();
         this.register_smmtools();
     }
     
@@ -126,12 +131,13 @@ class SmmRender {
 
         let mind_note_obj = JSON.parse(mind_note_data);
         let theme = mind_note_obj.theme.template;
-        if(this.themeList.findIndex(t=>{return t==theme}) === -1){
+        if(this.themeList.findIndex(t=>{return t.value==theme}) === -1){
             mind_note_obj.theme.template = "classic4";
-            api.showMessage("当前导图笔记的主题不存在，自动更换为默认主题");
+            // 当前导图笔记的主题不存在，自动更换为默认主题
+            api.showMessage(config.lang.showMessage.themeNotExist);
         }
         this.mindMap.setFullData(mind_note_obj);
-
+        
         // 监听节点激活事件
         this.mindMap.on('node_active', (node, nodeList) => {
             this.activeNodes = nodeList;
@@ -156,6 +162,43 @@ class SmmRender {
             this.toolbar_btn_toggle_status('smm_back', !this.isStart);
             this.toolbar_btn_toggle_status('smm_forward', !this.isEnd);
         })
+        
+        this.outerFramePositionBtnShow = false;
+        this.outerFramePosition = {
+            left: 0,
+            top: 0
+        }
+        
+        this.$nodeOuterFrameContainer = this.$widget.find('#nodeOuterFrameContainer');
+        
+        // 外框事件监听
+        this.mindMap.on('outer_frame_active', (el, parentNode, range) => {
+            // 取范围内第一个节点的外框样式
+            const firstNode = parentNode.children[range[0]];
+            const firstNodeOuterFrame = firstNode.getData('outerFrame');
+            /*
+            Object.keys(firstNodeOuterFrame).forEach(key => {
+            this.styleConfig[key] = firstNodeOuterFrame[key]
+            })*/
+            // 获取外框的位置大小信息
+            const { x, y, width } = el.rbox();
+            this.outerFramePosition.left = x + width + 'px';
+            this.outerFramePosition.top = y + 'px';
+            this.outerFramePositionBtnShow = true;
+             this.$nodeOuterFrameContainer.css(this.outerFramePosition);
+            this.$nodeOuterFrameContainer.addClass('smm-outer-frame-active');
+        })
+        
+        const hide = () => {
+            this.outerFramePositionBtnShow = false;
+            this.$nodeOuterFrameContainer.removeClass('smm-outer-frame-active');
+        }
+        
+        this.mindMap.on('scale', hide);
+        this.mindMap.on('translate', hide);
+        this.mindMap.on('svg_mousedown', hide);
+        this.mindMap.on('expand_btn_click', hide);
+        this.mindMap.on('outer_frame_delete', hide);
     }
     
     smm_resize() {
@@ -234,6 +277,11 @@ class SmmRender {
         this.$widget.find('.smm-toolbar-btn#smm_insert_remark').click(()=>this.insert_remark());
         this.$widget.find('.smm-toolbar-btn#smm_insert_ga').click(()=>this.insert_ga());
         this.$widget.find('.smm-toolbar-btn#smm_insert_relation_line').click(()=>this.insert_relation_line());
+        this.$widget.find('.smm-toolbar-btn#smm_add_outer_frame').click(()=>this.add_outer_frame());
+    }
+    
+    register_components_event() {
+        this.$widget.find('.smm-components-container #nodeOuterFrameContainer #smm_delete_outer_frame').click(()=>this.delete_outer_frame());
     }
     
     // 回退
@@ -363,6 +411,16 @@ class SmmRender {
         this.mindMap.associativeLine.createLineFromActiveNode();
     }
     
+    add_outer_frame() {
+        this.mindMap.execCommand('ADD_OUTER_FRAME', [], {fill: "transparent"});
+    }
+    
+    delete_outer_frame() {
+        this.outerFramePositionBtnShow = false;
+        this.$nodeOuterFrameContainer.removeClass('smm-outer-frame-active');
+        this.mindMap.outerFrame.removeActiveOuterFrame();
+    }
+    
     /**
      * 工具菜单操作
      */
@@ -398,11 +456,13 @@ class SmmRender {
             this.mindMap.export(fileType, false).then((content)=>{
                 if(config.EXPORT_TYPE === 'note'){
                     utils.createImageNote(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
-                        api.showMessage("图像笔记已经创建成功了！");
+                        // 图像笔记已经创建成功了！
+                        api.showMessage(config.lang.showMessage.imageNoteCreated);
                     });
                 }else{
                     utils.createImageAttachment(this.smmNote.noteId, `simple-mind-map-export.${fileType}`, fileType, content).then((res) => {
-                        api.showMessage("图像附件已经创建成功了！");
+                        // 图像附件已经创建成功了！
+                        api.showMessage(config.lang.showMessage.imageAttachmentCreated);
                     });
                 }
             });
@@ -513,7 +573,11 @@ class SmmRender {
             add_row(theme);
         }
         function add_row(theme) {
-            $theme_select.append(`<option value="${theme}">${theme}</option>`);
+            if(config.LANGUAGE==="en_us"){
+                $theme_select.append(`<option value="${theme.value}">${theme.value}</option>`);
+            }else{
+                $theme_select.append(`<option value="${theme.value}">${theme.name}</option>`);
+            }
         }
 
         $theme_select.val(this.mindMap.getTheme());

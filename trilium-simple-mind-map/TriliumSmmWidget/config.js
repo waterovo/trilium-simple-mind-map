@@ -41,5 +41,6 @@ module.exports = {
     EXPORT_TYPE,
     SHOW_SOURCE,
     HELP_URL,
+    LANGUAGE,
     lang
 }

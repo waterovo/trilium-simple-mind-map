@@ -11,7 +11,9 @@ module.exports={
         note: 'Note',
         tag: 'Tag',
         summary: 'Summary',
-        associativeLine: 'Associative line'
+        associativeLine: 'Associative line',
+        outerFrame: 'Outer frame',
+        more: 'more'
     },
     tools: {
         menu: "Menu",
@@ -27,6 +29,7 @@ module.exports={
         mouseLeftSelect: "Left click to box select nodes, right click to drag the canva",
         structure: "Structure",
         logicalStructure: "logicalStructure",
+        logicalStructureLeft: "logicalStructureLeft",
         mindMap: "mindMap",
         organizationStructure: "organizationStructure",
         catalogOrganization: "catalogOrganization",
@@ -50,5 +53,10 @@ module.exports={
         iconOnTitle: "Icon",
         close: "Close",
         save: "Save"
+    },
+    showMessage: {
+        themeNotExist: "The theme of the current map note does not exist and is automatically changed to the default one",
+        imageNoteCreated: "The image note has been created successfully!",
+        imageAttachmentCreated: "The image attachment has been created!"
     }
 }

@@ -11,7 +11,9 @@ module.exports={
         note: '备注',
         tag: '标签',
         summary: '概要',
-        associativeLine: '关联线'
+        associativeLine: '关联线',
+        outerFrame: '外框',
+        more: '更多'
     },
     tools: {
         menu: "菜单",
@@ -27,6 +29,7 @@ module.exports={
         mouseLeftSelect: "左键拖动画布，右键框选节点",
         structure: "结构",
         logicalStructure: "逻辑结构图",
+        logicalStructureLeft: "向左逻辑结构图",
         mindMap: "思维导图",
         organizationStructure: "组织结构图",
         catalogOrganization: "目录组织图",
@@ -50,5 +53,10 @@ module.exports={
         iconOnTitle: "图标",
         close: "关闭",
         save: "保存"
+    },
+    showMessage: {
+        themeNotExist: "当前导图笔记的主题不存在，自动更换为默认主题",
+        imageNoteCreated: "图像笔记已经创建成功了！",
+        imageAttachmentCreated: "图像附件已经创建成功了！"
     }
 }

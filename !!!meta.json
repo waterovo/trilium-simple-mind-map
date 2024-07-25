@@ -58,7 +58,7 @@
 							"title": "config",
 							"notePosition": 10,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "config.js",
@@ -79,7 +79,7 @@
 									"title": "language",
 									"notePosition": 10,
 									"prefix": null,
-									"isExpanded": true,
+									"isExpanded": false,
 									"type": "code",
 									"mime": "application/javascript;env=frontend",
 									"dataFileName": "language.js",
@@ -219,7 +219,7 @@
 									"prefix": null,
 									"isExpanded": false,
 									"type": "file",
-									"mime": "application/x-javascript",
+									"mime": "text/javascript",
 									"dataFileName": "simpleMindMap.common.js",
 									"noImport": false,
 									"attributes": [
@@ -276,6 +276,26 @@
 											"attachments": []
 										}
 									]
+								},
+								{
+									"noteId": "sT8W2p2AY09v",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"sT8W2p2AY09v"
+									],
+									"isClone": false,
+									"title": "themeList",
+									"notePosition": 60,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "code",
+									"mime": "application/javascript;env=frontend",
+									"dataFileName": "themeList.js",
+									"noImport": false,
+									"attributes": [],
+									"attachments": []
 								}
 							]
 						},
@@ -396,7 +416,7 @@
 					"title": "SmmLinkRender",
 					"notePosition": 40,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "code",
 					"mime": "application/javascript;env=frontend",
 					"dataFileName": "SmmLinkRender.js",
@@ -459,7 +479,7 @@
 					"title": "NoteTemplate",
 					"notePosition": 50,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
