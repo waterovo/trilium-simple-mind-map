@@ -40,8 +40,14 @@ class SmmWidget extends api.NoteContextAwareWidget {
         this.smmRender = new SmmRender();
         await this.smmRender.init(this);
         
-        this.smmRender.register_backdrop([{id:"iconListBackdrop",obj:new SmmIconWidget(this.smmRender, (name)=>{console.log(name, this.smmRender.activeNodes);})
-        }]);
+        this.smmRender.register_backdrop([{id:"iconListBackdrop",obj:new SmmIconWidget(this.smmRender)}]);
+        this.renderRichTextToolbarWidget();
+    }
+    
+    renderRichTextToolbarWidget() {
+        let $components = this.$render.find(".smm-components-container");
+        this.rrtToolbar = new RichTextToolbarWidget(this.smmRender, config);
+        $components.append(this.rrtToolbar.doRender());
     }
     
     renderQuickSearchWidget() {

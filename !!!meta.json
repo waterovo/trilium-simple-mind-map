@@ -9,7 +9,7 @@
 			],
 			"isClone": false,
 			"title": "trilium-simple-mind-map",
-			"notePosition": 320,
+			"notePosition": 330,
 			"prefix": null,
 			"isExpanded": true,
 			"type": "text",
@@ -58,7 +58,7 @@
 							"title": "config",
 							"notePosition": 10,
 							"prefix": null,
-							"isExpanded": false,
+							"isExpanded": true,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "config.js",
@@ -79,7 +79,7 @@
 									"title": "language",
 									"notePosition": 10,
 									"prefix": null,
-									"isExpanded": false,
+									"isExpanded": true,
 									"type": "code",
 									"mime": "application/javascript;env=frontend",
 									"dataFileName": "language.js",
@@ -336,6 +336,25 @@
 							"noImport": false,
 							"attributes": [],
 							"attachments": []
+						},
+						{
+							"noteId": "u7Hkmj5m5wmn",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"UQudKpJa1KHD",
+								"u7Hkmj5m5wmn"
+							],
+							"isClone": false,
+							"title": "RichTextToolbarWidget",
+							"notePosition": 60,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/javascript;env=frontend",
+							"dataFileName": "RichTextToolbarWidget.js",
+							"noImport": false,
+							"attributes": [],
+							"attachments": []
 						}
 					]
 				},
@@ -479,7 +498,7 @@
 					"title": "NoteTemplate",
 					"notePosition": 50,
 					"prefix": null,
-					"isExpanded": false,
+					"isExpanded": true,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",

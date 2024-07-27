@@ -58,5 +58,12 @@ module.exports={
         themeNotExist: "当前导图笔记的主题不存在，自动更换为默认主题",
         imageNoteCreated: "图像笔记已经创建成功了！",
         imageAttachmentCreated: "图像附件已经创建成功了！"
+    },
+    richTextToolbar: {
+        bold: '加粗',
+        italic: '斜体',
+        underline: '下划线',
+        strike: '删除线',
+        removeFormat: '清除样式'
     }
 }

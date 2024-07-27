@@ -58,5 +58,12 @@ module.exports={
         themeNotExist: "The theme of the current map note does not exist and is automatically changed to the default one",
         imageNoteCreated: "The image note has been created successfully!",
         imageAttachmentCreated: "The image attachment has been created!"
+    },
+    richTextToolbar: {
+        bold: 'Bold',
+        italic: 'Italic',
+        underline: 'Underline',
+        strike: 'Strike',
+        removeFormat: 'Clear Style'
     }
 }

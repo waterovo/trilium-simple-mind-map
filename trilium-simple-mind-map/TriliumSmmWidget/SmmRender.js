@@ -185,7 +185,7 @@ class SmmRender {
             this.outerFramePosition.left = x + width + 'px';
             this.outerFramePosition.top = y + 'px';
             this.outerFramePositionBtnShow = true;
-             this.$nodeOuterFrameContainer.css(this.outerFramePosition);
+            this.$nodeOuterFrameContainer.css(this.outerFramePosition);
             this.$nodeOuterFrameContainer.addClass('smm-outer-frame-active');
         })
         

@@ -53,7 +53,7 @@ const TPL = `
 </div>`;
 
 class SmmIconWidget extends api.BasicWidget {
-	constructor(smmRender, iconClickFn){
+	constructor(smmRender){
         super();
         this.smmRender = smmRender;
 		this.nodeIconList = smmRender.iconList;
