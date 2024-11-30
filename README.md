@@ -14,7 +14,7 @@ Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.6
 5. SmmLinkRender：在超链接笔记的预览提示框中，渲染思维导图
 ### 安装
 1. 导入笔记，取消勾选安全导入选项（如果您不熟悉trilium的小部件，请谨慎操作）
-2. 开始使用
+2. 重新加载页面，开始使用
 ### 更新
 1. 导入笔记
 2. 如果需要保留之前的模板关系，可以保留旧版本的【模板】中的【simple-mind-map】笔记，然后复制新导入的【simple-mind-map】笔记的属性（关系和标签）和内容替换旧版本
