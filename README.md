@@ -24,7 +24,7 @@ Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.6
 1. 在插入子笔记的菜单中可以看到simple-mind-map选项，参考[Template · zadam/trilium Wiki](https://github.com/zadam/trilium/wiki/Template#instance-note)
 #### 如何自定义主题
 1. 参考【customThemeList】笔记进行配置
-2. 可以从这里获取到一些自定义主题[https://github.com/wanglin2/mind-map/tree/main/web/src/customThemes]
+2. 获取更多主题可以查看主题扩展插件[simple-mind-map-plugin-themes](https://github.com/wanglin2/simple-mind-map-plugin-themes)
 3. 自定义主题在【SmmLinkRender】插件中自动渲染为classic4主题
 #### 如何切换语言
 1. 在【config】笔记中修改LANGUAGE变量即可更换语言，目前支持zh_cn、en_us两个选项
