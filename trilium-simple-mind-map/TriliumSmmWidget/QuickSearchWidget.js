@@ -17,7 +17,7 @@ const TPL = `
   </style>
   
   <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary search-button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <button class="btn btn-outline-secondary search-button" type="button" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <span class="bx bx-search"></span>
     </button>
     <div class="dropdown-menu dropdown-menu-left"></div>

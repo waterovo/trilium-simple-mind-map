@@ -1,10 +1,10 @@
-let TPL = await utils.getData(config.SMM_TPL_NOTE_ID);
-TPL = eval('`'+TPL+'`');
-let styles = ``;
+//let TPL = await utils.getData(config.SMM_TPL_NOTE_ID);
+//TPL = eval('`'+TPL+'`');
+
+let TPL = await utils.renderEjsTemplate(config.SMM_TPL_NOTE_ID,{config});
+
 let cssArr = await utils.getNoteConetntList(config.CSS_NOTE_ID_LIST);
-for (const cssData of cssArr) {
-    styles += cssData;
-}
+let styles = cssArr.join("\n\n");
 
 let WIDGET_TPL = `<div class="smm-widget">
     <div id="[to be set]" class="smm-render"></div>

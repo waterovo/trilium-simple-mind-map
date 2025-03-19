@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <% if (note.hasLabel("shareDescription")) { %>
+        <meta name="description" content="<%= note.getLabelValue("shareDescription") %>">
+    <% } %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% if (note.hasRelation("shareFavicon")) { %>
+    <link rel="shortcut icon" href="api/notes/<%= note.getRelation("shareFavicon").value %>/download">
+    <% } else { %>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <% } %>
+    <script src="../<%= appPath %>/share.js"></script>
+    <% if (!note.isLabelTruthy("shareOmitDefaultCss")) { %>
+        <link href="../<%= assetPath %>/libraries/normalize.min.css" rel="stylesheet">
+        <link href="../<%= assetPath %>/stylesheets/share.css" rel="stylesheet">
+    <% } %>
+    <% if (note.type === 'text' || note.type === 'book') { %>
+        <link href="../<%= assetPath %>/libraries/ckeditor/ckeditor-content.css" rel="stylesheet">
+    <% } %>
+    <% for (const cssRelation of note.getRelations("shareCss")) { %>
+        <link href="api/notes/<%= cssRelation.value %>/download" rel="stylesheet">
+    <% } %>
+    <% for (const jsRelation of note.getRelations("shareJs")) { %>
+        <script type="module" src="api/notes/<%= jsRelation.value %>/download"></script>
+    <% } %>
+    <script type="module" src="../<%= assetPath %>/node_modules/jquery/dist/jquery.min.js"></script>
+
+    
+    <% if (note.isLabelTruthy('shareDisallowRobotIndexing')) { %>
+        <meta name="robots" content="noindex,follow" />
+    <% } %>
+    <%- header %>
+    <title><%= note.title %></title>
+</head>
+<body data-note-id="<%= note.noteId %>" data-ancestor-note-id="<%= subRoot.note.noteId %>">
+<div id="layout" style="min-height: 100vh;">
+    <div id="main">
+        <% if (note.parents[0].noteId !== '_share' && note.parents.length !== 0) { %>
+            <nav id="parentLink">
+                parent: <a href="<%= note.parents[0].shareId %>"
+                           class="type-<%= note.parents[0].type %>"><%= note.parents[0].title %></a>
+            </nav>
+        <% } %>
+
+        <h1 id="title"><%= note.title %></h1>
+
+        <% if (note.hasLabel("pageUrl")) { %>
+            <div id="noteClippedFrom">This note was originally clipped from <a href="<%= note.getLabelValue("pageUrl") %>"><%= note.getLabelValue("pageUrl") %></a></div>
+        <% } %>
+
+        <% if (!isEmpty) { %>
+            <% if (note.type === 'code' && note.mime === "application/json" && note.hasLabel('simpleMindMap')) { %>
+            <link rel="stylesheet" href="https://unpkg.com/simple-mind-map@0.12.1/dist/simpleMindMap.esm.css">
+            <style>
+                #mindMapContainer * {
+                    margin: 0;
+                    padding: 0;
+                }
+                #mindMapContainer {
+                    width: 100%;
+                    height: 100%;
+                }
+            </style>
+            <div id="mindMapContainer"></div>
+            <script type="module">
+                import {default as MindMap} from 'https://unpkg.com/simple-mind-map@0.12.1/dist/simpleMindMap.esm.min.js';
+                import { default as Themes } from 'https://unpkg.com/simple-mind-map-plugin-themes@1.0.0/dist/themes.esm.min.js';
+                Themes.init(MindMap)
+                const mindMap = new MindMap({
+                    el: document.getElementById('mindMapContainer'),
+                    readonly: true
+                });
+                const data = <%- note.getContent() %>;
+                const themeList = [
+                    {
+                        name: '默认主题',
+                        value: 'default',
+                        dark: false
+                    },
+                    ...Themes.lightList, ...Themes.darkList].reverse();
+                let not_find_theme = false;
+                if(themeList.findIndex(t=>{return t.value==data.theme.template}) === -1){
+                    // 替换主题，让导图能正常加载
+                    data.theme.template = "classic4";
+                    not_find_theme = true;
+                }
+                mindMap.setFullData(data);
+                if(not_find_theme){
+                    // 重新加载主题，修复字体颜色错误
+                    mindMap.setTheme("classic4");
+                }
+                
+                const set_note_link_share = ()=>{
+                    const regex=/^#root/
+                    $('#mindMapContainer').find('svg g.smm-node a').each((index, element)=>{
+                        let $a = $(element);
+                        if(regex.test($a.attr("href"))){
+                            $a.attr("href", $a.attr("href").replace(regex, '.'));
+                        }
+                    })
+                }
+                mindMap.on('node_tree_render_end', data => {
+                    // 笔记超链接设置为当前页打开
+                    set_note_link_share();
+                })
+            </script>
+            <% } else { %>
+                <div id="content" class="type-<%= note.type %><% if (note.type === 'text') { %> ck-content<% } %>">
+                    <%- content %>
+                </div>
+            <% } %>
+        <% } %>
+
+        <% if (note.hasVisibleChildren()) { %>
+            <nav id="childLinks" class="<% if (isEmpty) { %>grid<% } else { %>list<% } %>">
+                <% if (!isEmpty) { %>
+                    <hr>
+                    <span>Child notes: </span>
+                <% } %>
+
+                <ul>
+                    <%
+                    for (const childNote of note.getVisibleChildNotes()) {
+                        const isExternalLink = childNote.hasLabel('shareExternalLink');
+                        const linkHref = isExternalLink ? childNote.getLabelValue('shareExternalLink') : `./${childNote.shareId}`;
+                        const target = isExternalLink ? `target="_blank" rel="noopener noreferrer"` : '';
+                    %>
+                        <li>
+                            <a href="<%= linkHref %>" <%= target %>
+                               class="type-<%= childNote.type %>"><%= childNote.title %></a>
+                        </li>
+                    <% } %>
+                </ul>
+            </nav>
+        <% } else if (isEmpty) { %>
+            <p>This note has no content.</p>
+        <% } %>
+    </div>
+
+    <% if (subRoot.note.hasVisibleChildren()) { %>
+        <button id="toggleMenuButton"></button>
+
+        <nav id="menu">
+            <%- include('tree_item', {note: subRoot.note, branch: subRoot.branch, activeNote: note}) %>
+        </nav>
+    <% } %>
+</div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 ![image](https://github.com/user-attachments/assets/292b6fbc-353f-418c-9142-f55f7228bb57)
 
 
-Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.63.7）
+Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（[Trilium](https://github.com/zadam/trilium) 0.63.7）
 
 *注意*：请勿在网络不通畅时编辑思维导图笔记，请及时使用trilium的【保存笔记历史】功能对思维导图笔记进行备份，以防数据丢失。
 ### 结构
@@ -12,6 +12,7 @@ Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.6
 3. QuickSearchWidget：提取自trilium源码，快速搜索笔记并获取选中笔记的链接地址和名称
 4. CopyImageReferenceButton：提取自trilium源码，可以根据searchString复制图像引用到剪切板
 5. SmmLinkRender：在超链接笔记的预览提示框中，渲染思维导图
+6. SmmTextNoteRenderWidget：在text笔记中渲染思维导图，还有些问题，但不影响使用
 ### 安装
 1. 导入笔记，取消勾选安全导入选项（如果您不熟悉trilium的小部件，请谨慎操作）
 2. 重新加载页面，开始使用
@@ -37,3 +38,5 @@ Powered by [simple-mind-map](https://github.com/wanglin2/mind-map)（Trilium 0.6
 #### 如何避免数据丢失
 1. 请勿在网络不通畅时编辑思维导图笔记，该行为可能会导致数据丢失，请在编辑思维导图后及时使用trilium的【保存笔记历史】功能对思维导图笔记进行备份，以防数据丢失
 2. 若已使用【保存笔记历史】功能，出现数据丢失后，可在【笔记修改历史】中恢复历史笔记数据
+### 更新计划
+1. 已无更新计划，如果您有功能需求，可以在issue中提出

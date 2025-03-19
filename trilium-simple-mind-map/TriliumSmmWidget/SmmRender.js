@@ -1,4 +1,6 @@
 const MindMap = simpleMindMapcommonjs.default;
+const Themes = themescjsminjs.default;
+Themes.init(MindMap);
 
 class SmmRender {
     constructor() {
@@ -8,7 +10,13 @@ class SmmRender {
         this.initialized = false;
         this.activeNodes = [];
         this.init_custom_theme();
-        this.themeList = [...themeList, ...customThemeList].reverse();
+        this.themeList = [
+            {
+                name: '默认主题',
+                value: 'default',
+                dark: false
+            },
+            ...Themes.lightList, ...Themes.darkList, ...customThemeList].reverse();
         this.iconList = MindMap.iconList;
         this.useLeftKeySelectionRightKeyDrag = config.LKSRKD;
         this.toolbarBtnsRole = {
@@ -100,6 +108,7 @@ class SmmRender {
     }
     
     register_backdrop(backdropWidgets){
+        this.$widget.parent().children('.smm-backdrops-container').remove();
         this.$backdrops = this.$widget.find(".smm-backdrops-container");
         this.$backdrops.insertBefore(this.$widget);
         for(const widget of backdropWidgets){
@@ -474,6 +483,7 @@ class SmmRender {
 
         this.render_smm_export_select();
         this.render_smm_mouse_select();
+        this.render_smm_rainbow_lines_select();
         this.render_smm_theme_select();
         this.render_smm_struct_select();
     }
@@ -554,7 +564,10 @@ class SmmRender {
     
     render_smm_mouse_select() {
         let $mouse_select = this.$widget.find('#smmtools_mouse_select select');
-        
+        $mouse_select.val(this.useLeftKeySelectionRightKeyDrag?"1":"0");
+        this.mindMap.updateConfig({
+            useLeftKeySelectionRightKeyDrag: this.useLeftKeySelectionRightKeyDrag
+        });
         $mouse_select.on('change', (e) => {
             if($(e.target).children('option:selected').val()=="0"){
                 this.useLeftKeySelectionRightKeyDrag = false;
@@ -564,6 +577,14 @@ class SmmRender {
             this.mindMap.updateConfig({
                 useLeftKeySelectionRightKeyDrag: this.useLeftKeySelectionRightKeyDrag
            });
+        });
+    }
+    
+    render_smm_rainbow_lines_select() {
+        let $rainbow_lines_select = this.$widget.find('#smmtools_rainbow_lines select');
+        $rainbow_lines_select.val(this.mindMap.opt.rainbowLinesConfig.open?"1":"0");
+        $rainbow_lines_select.on('change', (e) => {
+            this.mindMap.rainbowLines.updateRainLinesConfig({open:$(e.target).children('option:selected').val()=="1"?true:false});
         });
     }
 

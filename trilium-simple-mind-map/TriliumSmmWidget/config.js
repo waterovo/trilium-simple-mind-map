@@ -1,5 +1,5 @@
 // 用于插件版本区分
-const SMM_WDIGET_VERSION = "v1.1.0";
+const SMM_WDIGET_VERSION = "v1.2.1";
 
 // 获取template笔记ID
 const templateNote = await api.searchForNote(`#smmWidgetTemplate AND note.parents.labels.smmWidgetVersion="${SMM_WDIGET_VERSION}"`);
@@ -39,6 +39,7 @@ module.exports = {
     CSS_NOTE_ID_LIST,
     IMAGE_NOTE_TYPE,
     EXPORT_TYPE,
+    LKSRKD,
     SHOW_SOURCE,
     HELP_URL,
     LANGUAGE,

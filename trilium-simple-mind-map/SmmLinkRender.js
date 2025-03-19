@@ -3,6 +3,18 @@
 使用此插件时，请注意备份数据
 */
 const MindMap = simpleMindMapcommonjs.default;
+const Themes = themescjsminjs.default;
+Themes.init(MindMap);
+customThemeList.forEach(themeConfig=>{
+    MindMap.defineTheme(themeConfig.value, themeConfig.theme);
+});
+const themeList = [
+    {
+        name: '默认主题',
+        value: 'default',
+        dark: false
+    },
+    ...Themes.lightList, ...Themes.darkList, ...customThemeList];
 
 const TPL = `<div></div>`;
 
@@ -49,7 +61,7 @@ function mouseEnterHandler() {
         
         let theme = mind_note_obj.theme.template;
         let not_find_theme = false;
-        if(Object.keys(MindMap.themes).findIndex(t=>{return t==theme}) === -1){
+        if(themeList.findIndex(t=>{return t.value==theme}) === -1){
             // 替换主题，让导图能正常加载
             mind_note_obj.theme.template = "classic4";
             not_find_theme = true;

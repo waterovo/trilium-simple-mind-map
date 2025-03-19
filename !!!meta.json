@@ -9,7 +9,7 @@
 			],
 			"isClone": false,
 			"title": "trilium-simple-mind-map",
-			"notePosition": 330,
+			"notePosition": 350,
 			"prefix": null,
 			"isExpanded": true,
 			"type": "text",
@@ -17,7 +17,15 @@
 			"format": "html",
 			"dirFileName": "trilium-simple-mind-map",
 			"noImport": false,
-			"attributes": [],
+			"attributes": [
+				{
+					"type": "label",
+					"name": "smmWidgetVersion",
+					"value": "v1.2.1",
+					"isInheritable": false,
+					"position": 10
+				}
+			],
 			"attachments": [],
 			"children": [
 				{
@@ -30,7 +38,7 @@
 					"title": "TriliumSmmWidget",
 					"notePosition": 20,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "code",
 					"mime": "application/javascript;env=frontend",
 					"dataFileName": "TriliumSmmWidget.js",
@@ -58,13 +66,21 @@
 							"title": "config",
 							"notePosition": 10,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "config.js",
 							"dirFileName": "config",
 							"noImport": false,
-							"attributes": [],
+							"attributes": [
+								{
+									"type": "label",
+									"name": "smmWidgetVersion",
+									"value": "v1.2.1",
+									"isInheritable": false,
+									"position": 10
+								}
+							],
 							"attachments": [],
 							"children": [
 								{
@@ -79,7 +95,7 @@
 									"title": "language",
 									"notePosition": 10,
 									"prefix": null,
-									"isExpanded": true,
+									"isExpanded": false,
 									"type": "code",
 									"mime": "application/javascript;env=frontend",
 									"dataFileName": "language.js",
@@ -131,6 +147,34 @@
 											"attachments": []
 										}
 									]
+								},
+								{
+									"noteId": "2SWEW1LFvcjG",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"lF9ps1Nmyl5W",
+										"2SWEW1LFvcjG"
+									],
+									"isClone": false,
+									"title": "db",
+									"notePosition": 20,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "code",
+									"mime": "application/json",
+									"dataFileName": "db.json",
+									"noImport": false,
+									"attributes": [
+										{
+											"type": "label",
+											"name": "smmWidgetConfigDb",
+											"value": "",
+											"isInheritable": false,
+											"position": 10
+										}
+									],
+									"attachments": []
 								}
 							]
 						},
@@ -164,7 +208,7 @@
 							"title": "SmmRender",
 							"notePosition": 30,
 							"prefix": null,
-							"isExpanded": true,
+							"isExpanded": false,
 							"type": "code",
 							"mime": "application/javascript;env=frontend",
 							"dataFileName": "SmmRender.js",
@@ -296,6 +340,34 @@
 									"noImport": false,
 									"attributes": [],
 									"attachments": []
+								},
+								{
+									"noteId": "0QaS4N4G8C4c",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"UQudKpJa1KHD",
+										"sQthH2ecpx7n",
+										"0QaS4N4G8C4c"
+									],
+									"isClone": false,
+									"title": "themes.cjs.min.js",
+									"notePosition": 70,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "file",
+									"mime": "application/javascript",
+									"dataFileName": "themes.cjs.min.js",
+									"noImport": false,
+									"attributes": [
+										{
+											"type": "label",
+											"name": "originalFileName",
+											"value": "themes.cjs.min.js",
+											"isInheritable": false,
+											"position": 10
+										}
+									],
+									"attachments": []
 								}
 							]
 						},
@@ -377,7 +449,7 @@
 					"attributes": [
 						{
 							"type": "label",
-							"name": "widget",
+							"name": "disabled:widget",
 							"value": "",
 							"isInheritable": false,
 							"position": 10
@@ -468,6 +540,21 @@
 							"noImport": false
 						},
 						{
+							"noteId": "0QaS4N4G8C4c",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"5t57Sjiyluw9",
+								"0QaS4N4G8C4c"
+							],
+							"isClone": true,
+							"title": "themes.cjs.min.js",
+							"prefix": null,
+							"type": "text",
+							"format": "html",
+							"dataFileName": "themes.cjs.min.js.clone.html",
+							"noImport": false
+						},
+						{
 							"noteId": "VrVIdwYsZXTk",
 							"notePath": [
 								"clY0NcA8ubmX",
@@ -476,7 +563,7 @@
 							],
 							"isClone": false,
 							"title": "utils",
-							"notePosition": 10,
+							"notePosition": 20,
 							"prefix": null,
 							"isExpanded": false,
 							"type": "code",
@@ -485,8 +572,49 @@
 							"noImport": false,
 							"attributes": [],
 							"attachments": []
+						},
+						{
+							"noteId": "ohHksPMhmE6P",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"5t57Sjiyluw9",
+								"ohHksPMhmE6P"
+							],
+							"isClone": true,
+							"title": "customThemeList",
+							"prefix": null,
+							"type": "text",
+							"format": "html",
+							"dataFileName": "customThemeList.clone.html",
+							"noImport": false
 						}
 					]
+				},
+				{
+					"noteId": "bGZuXqkWStve",
+					"notePath": [
+						"clY0NcA8ubmX",
+						"bGZuXqkWStve"
+					],
+					"isClone": false,
+					"title": "SmmTextNoteRenderWidget",
+					"notePosition": 50,
+					"prefix": null,
+					"isExpanded": false,
+					"type": "code",
+					"mime": "application/javascript;env=frontend",
+					"dataFileName": "SmmTextNoteRenderWidget.js",
+					"noImport": false,
+					"attributes": [
+						{
+							"type": "label",
+							"name": "widget",
+							"value": "",
+							"isInheritable": false,
+							"position": 10
+						}
+					],
+					"attachments": []
 				},
 				{
 					"noteId": "mX7as1JcvBct",
@@ -496,9 +624,9 @@
 					],
 					"isClone": false,
 					"title": "NoteTemplate",
-					"notePosition": 50,
+					"notePosition": 70,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
@@ -551,6 +679,13 @@
 									"value": "",
 									"isInheritable": false,
 									"position": 10
+								},
+								{
+									"type": "relation",
+									"name": "shareTemplate",
+									"value": "CvUcsD7uy8xV",
+									"isInheritable": false,
+									"position": 50
 								}
 							],
 							"attachments": []
@@ -564,20 +699,20 @@
 						"k4lLu5jass0y"
 					],
 					"isClone": false,
-					"title": "static",
-					"notePosition": 70,
+					"title": "assets",
+					"notePosition": 90,
 					"prefix": null,
-					"isExpanded": true,
+					"isExpanded": false,
 					"type": "text",
 					"mime": "text/html",
 					"format": "html",
-					"dirFileName": "static",
+					"dirFileName": "assets",
 					"noImport": false,
 					"attributes": [
 						{
 							"type": "label",
 							"name": "smmWidgetVersion",
-							"value": "v1.1.0",
+							"value": "v1.2.1",
 							"isInheritable": false,
 							"position": 10
 						}
@@ -585,20 +720,70 @@
 					"attachments": [],
 					"children": [
 						{
-							"noteId": "XoXjBNBfIfvE",
+							"noteId": "CvUcsD7uy8xV",
 							"notePath": [
 								"clY0NcA8ubmX",
 								"k4lLu5jass0y",
-								"XoXjBNBfIfvE"
+								"CvUcsD7uy8xV"
 							],
 							"isClone": false,
-							"title": "template",
+							"title": "share_page.ejs",
 							"notePosition": 10,
 							"prefix": null,
 							"isExpanded": false,
 							"type": "code",
-							"mime": "text/html",
-							"dataFileName": "template.html",
+							"mime": "application/x-ejs",
+							"dataFileName": "share_page.ejs",
+							"dirFileName": "1_share_page.ejs",
+							"noImport": false,
+							"attributes": [
+								{
+									"type": "label",
+									"name": "shareHiddenFromTree",
+									"value": "",
+									"isInheritable": false,
+									"position": 10
+								}
+							],
+							"attachments": [],
+							"children": [
+								{
+									"noteId": "XHNEkgKuqZDH",
+									"notePath": [
+										"clY0NcA8ubmX",
+										"k4lLu5jass0y",
+										"CvUcsD7uy8xV",
+										"XHNEkgKuqZDH"
+									],
+									"isClone": false,
+									"title": "tree_item",
+									"notePosition": 10,
+									"prefix": null,
+									"isExpanded": false,
+									"type": "code",
+									"mime": "application/x-ejs",
+									"dataFileName": "tree_item.dat",
+									"noImport": false,
+									"attributes": [],
+									"attachments": []
+								}
+							]
+						},
+						{
+							"noteId": "SBnI513xNuOo",
+							"notePath": [
+								"clY0NcA8ubmX",
+								"k4lLu5jass0y",
+								"SBnI513xNuOo"
+							],
+							"isClone": false,
+							"title": "template.ejs",
+							"notePosition": 20,
+							"prefix": null,
+							"isExpanded": false,
+							"type": "code",
+							"mime": "application/x-ejs",
+							"dataFileName": "template.ejs",
 							"noImport": false,
 							"attributes": [
 								{
@@ -620,7 +805,7 @@
 							],
 							"isClone": false,
 							"title": "css",
-							"notePosition": 20,
+							"notePosition": 40,
 							"prefix": null,
 							"isExpanded": false,
 							"type": "code",
@@ -648,7 +833,7 @@
 					],
 					"isClone": false,
 					"title": "快捷键",
-					"notePosition": 80,
+					"notePosition": 110,
 					"prefix": null,
 					"isExpanded": false,
 					"type": "text",

@@ -120,6 +120,37 @@ async function createImageAttachment(parentNoteId, title, fileType, content) {
         }
     }, [parentNoteId, title, fileType, content]);
 }
+
+async function renderEjsTemplate(templateId, opts) {
+    return await api.runAsyncOnBackendWithManualTransactionHandling(async (templateId, opts)=>{
+        const ejs = await import("ejs");
+        // Get the template note and content
+        const templateNote = api.getNote(templateId);
+
+        // Make sure the note type is correct
+        if (templateNote.type === 'code' && templateNote.mime === 'application/x-ejs') {
+
+            // EJS caches the result of this so we don't need to pre-cache
+            const includer = (path) => {
+                const childNote = templateNote.children.find(n => path === n.title);
+                if (!childNote) return null;
+                if (childNote.type !== 'code' || childNote.mime !== 'application/x-ejs') return null;
+                return { template: childNote.getContent() };
+            };
+
+            // Try to render user's template, w/ fallback to default view
+            try {
+                const ejsResult = ejs.render(templateNote.getContent(), opts, {includer});
+                return ejsResult;
+            }
+            catch (e) {
+                api.log(`Rendering user provided share template (${templateId}) threw exception ${e.message} with stacktrace: ${e.stack}`);
+            }
+        }
+        return null;
+    },[templateId, opts]);
+}
+
 module.exports = {
     getNoteConetntList,
     getData,
@@ -128,5 +159,6 @@ module.exports = {
     setLabel,
     createDataNote,
     createImageNote,
-    createImageAttachment
+    createImageAttachment,
+    renderEjsTemplate
 }
