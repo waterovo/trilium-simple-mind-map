@@ -43,6 +43,12 @@ class SmmTextNoteRenderWidget extends api.NoteContextAwareWidget {
     
     async injectLoadIncludedNote(textEditor){
         if(this.isFirstRun){
+            // 适配next
+            if(!this.isReadOnly){
+                if(textEditor==null){
+                	return;
+                }
+            }
             this.isFirstRun = false;
             var getNoteContainer = async ()=> {
                 if (this.isReadOnly) {
@@ -92,7 +98,6 @@ class SmmTextNoteRenderWidget extends api.NoteContextAwareWidget {
                         // 重新加载主题，修复字体颜色错误
                         mindMap${containerElId}.setTheme("classic4");
                     }
-                    mindMap${containerElId}.fit();
                     const set_note_link_target = (regex=/^#root/, target='_self') => {
                         $('#mindMapContainer-${containerElId}').find('svg g.smm-node a').each((index, element)=>{
                             let $a = $(element);
