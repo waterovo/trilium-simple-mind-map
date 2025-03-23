@@ -9,9 +9,8 @@ const TEMPLATE = `
         padding: 0;
     }
     section .mindMapContainer {
-        width: 100%;
-        height: 100%;
-        min-height: 80vh;
+        height: 100vh;
+        width: 100vw;
     }
 </style>`;
 
