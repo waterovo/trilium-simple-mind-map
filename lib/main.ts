@@ -33,6 +33,8 @@ MindMap.usePlugin(RainbowLines)
     .usePlugin(TouchEvent)
     .usePlugin(RichText)
 
+Themes.init(MindMap)
+
 export default class SmmRender {
     initialized: boolean;
     smmContainerId: string;
@@ -154,7 +156,7 @@ export default class SmmRender {
         this.register_smmtools();
         this.register_widget(RichTextToolbarWidget, {})
         this.register_widget(QuickSearchWidget, {id:"urlLinkBackdrop", showUrl: false})
-        this.register_widget(IconListWidget, {id:"iconListBackdrop", iconList:this.iconList, activeNodes:this.activeNodes, SmmRender: this})
+        this.register_widget(IconListWidget, {id:"iconListBackdrop", iconList:this.iconList, activeNodes:this.activeNodes, smmRender: this})
         // 清理可能残留的backdrops
         this.context.widget.parent().children('.smm-backdrops-container').remove();
         this.$backdrops.insertBefore(this.context.widget);
@@ -200,10 +202,14 @@ export default class SmmRender {
         const opt = {
             el: this.context.widget.find(`#${this.smmContainerId}`).get(0),
             initRootNodePosition: ['center', 'center'],
-            layout: 'logicalStructure'
+            layout: 'logicalStructure',
         }
         // @ts-ignore
         this.mindMap = new MindMap(opt);
+
+        // 初始化彩虹线条
+        // @ts-ignore
+        this.mindMap.rainbowLines.updateRainLinesConfig(this.context.config.rainbowLinesConfig??false);
 
         let mind_note_obj = JSON.parse(mind_note_data);
         let theme = mind_note_obj.theme.template;

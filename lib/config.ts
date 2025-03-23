@@ -4,5 +4,6 @@ export interface Config {
     useLeftKeySelectionRightKeyDrag: boolean,
     imageNoteType: string,
     exportType: string,
-    helpUrl: string
+    helpUrl: string,
+    rainbowLinesConfig:{open:boolean}
 }

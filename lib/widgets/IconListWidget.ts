@@ -59,14 +59,12 @@ export default class IconListWidget extends BaseWidget {
     nodeIconList: any;
     activeName: string;
     iconList: any[];
-    activeNodes: any[];
     $iconBox: JQuery<HTMLElement>;
     smmRender: any;
-    constructor(opt:{iconList, activeNodes, smmRender: SmmRender}){
+    constructor(opt:{iconList, smmRender: SmmRender}){
         super();
         this.smmRender = opt.smmRender;
 		this.nodeIconList = opt.iconList;
-		this.activeNodes = opt.activeNodes;
         this.activeName = 'icon';
         this.iconList = [];
 	}
@@ -114,8 +112,7 @@ export default class IconListWidget extends BaseWidget {
     }
     
     setIcon(type, name) {
-        console.log(this.activeNodes)
-        this.activeNodes.forEach(node => {
+        this.smmRender.activeNodes.forEach(node => {
             const iconList = [...(node.getData('icon') || [])];
             let key = type + '_' + name;
             let index = iconList.findIndex(item => {
@@ -137,7 +134,7 @@ export default class IconListWidget extends BaseWidget {
                 }
             }
             node.setIcon(iconList);
-            if (this.activeNodes.length === 1) {
+            if (this.smmRender.activeNodes.length === 1) {
                 this.iconList = iconList;
                 this.smmRender.set_icon_selected(iconList);
             }
