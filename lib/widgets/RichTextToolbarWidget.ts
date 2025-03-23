@@ -218,11 +218,7 @@ export default class RichTextToolbarWidget extends BaseWidget {
     }
     
     toggleShowToolBar() {
-        if (this.showRichTextToolbar) {
-            this.$widget.removeClass("hide");
-        } else {
-            this.$widget.addClass("hide");
-        }
+        this.showRichTextToolbar?this.$widget.removeClass("hide"):this.$widget.addClass("hide")
         this.$richTextToolbar.css(this.style);
     }
     

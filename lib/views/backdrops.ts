@@ -7,9 +7,6 @@ const TPL = `
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="imageBackdropLabel"><%= backdrops.imageOnTitle %></h5>
-                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="input-group input-group-sm mb-3">
@@ -38,9 +35,6 @@ const TPL = `
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="urlLinkBackdropLabel"><%= backdrops.linkOnTitle %></h5>
-                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                 </div>
@@ -57,9 +51,6 @@ const TPL = `
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="remarkBackdropLabel"><%= backdrops.remarkOnTitle %></h5>
-                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                     <div class="input-group mb-3">
@@ -79,9 +70,6 @@ const TPL = `
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="iconListBackdropLabel"><%= backdrops.iconOnTitle %></h5>
-                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
                 <div class="modal-body">
                 </div>

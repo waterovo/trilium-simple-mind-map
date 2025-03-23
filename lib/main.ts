@@ -176,19 +176,11 @@ export default class SmmRender {
             case "components":
                 let $components = this.$render.find(".smm-components-container")
                 $components.append(widget.doRender())
+                break
             case "backdrops":
                 let $modalBody = this.$backdrops.find(`#${opt.id} .modal-body`);
                 $modalBody.append(widget.doRender());
-        }
-    }
-
-    register_backdrop(backdropWidgets){
-        this.context.widget.parent().children('.smm-backdrops-container').remove();
-        this.$backdrops = this.$render.find(".smm-backdrops-container");
-        this.$backdrops.insertBefore(this.context.widget);
-        for(const widget of backdropWidgets){
-            let $modalBody = this.$backdrops.find(`#${widget.id} .modal-body`);
-            $modalBody.append(widget.obj.doRender());
+                break
         }
     }
 
@@ -688,6 +680,7 @@ export default class SmmRender {
         $theme_select.val(this.mindMap.getTheme());
         $theme_select.on('change', (e) => {
             this.mindMap.setTheme($(e.target).children('option:selected').val());
+            this.save_mind_note();
         });
     }
 

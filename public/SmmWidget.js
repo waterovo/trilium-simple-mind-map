@@ -28,6 +28,8 @@ class SmmWidget extends api.NoteContextAwareWidget {
     }
     
     async renderWidget() {
+        // 清空重新渲染
+        this.$render.empty();
         const context = {
         	"widget": this.$widget,
             "note": this.note,
@@ -37,7 +39,8 @@ class SmmWidget extends api.NoteContextAwareWidget {
                 useLeftKeySelectionRightKeyDrag: false,
                 imageNoteType: "svg",
                 exportType: "note",
-                helpUrl: ""
+                helpUrl: "https://github.com/waterovo/trilium-simple-mind-map?tab=readme-ov-file#%E4%BD%BF%E7%94%A8",
+                rainbowLinesConfig:{open:false},
             }
         }
         this.smmRender = new SmmRender(context);
