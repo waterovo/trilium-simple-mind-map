@@ -128,6 +128,14 @@ export default class SmmRender {
         this.$render.append($(renderLeftTopMenuTpl({leftTopMenu:this.i18n.p("leftTopMenu")})))
         this.$backdrops = $(renderBackdropsTpl({backdrops:this.i18n.p("backdrops")}))
         this.$render.append(this.$backdrops)
+        this.$render.append(`
+<div class="smm-components-container">
+    <div id="nodeOuterFrameContainer">
+        <div class="smm-outer-frame-btn" id="smm_delete_outer_frame">
+            <span class="bx bx-trash iconfont"></span>
+        </div>
+    </div>
+</div>`)
         
         // 移动元素到渲染位置
         {

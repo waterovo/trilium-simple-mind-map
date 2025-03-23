@@ -91,13 +91,6 @@ const TPL = `
             </div>
         </div>
     </div>
-</div>
-<div class="smm-components-container">
-    <div id="nodeOuterFrameContainer">
-        <div class="smm-outer-frame-btn" id="smm_delete_outer_frame">
-            <span class="bx bx-trash iconfont"></span>
-        </div>
-    </div>
 </div>`
 
 export default function renderBackdropsTpl (data:{}){

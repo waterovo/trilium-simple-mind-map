@@ -68,6 +68,10 @@ export default class IconListWidget extends BaseWidget {
         this.activeName = 'icon';
         this.iconList = [];
 	}
+
+    get renderOn(){
+        return "backdrops"
+    }
     
     doRender() {
         this.$widget = $(TPL);
