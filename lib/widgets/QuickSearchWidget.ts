@@ -128,7 +128,6 @@ export default class QuickSearchWidget extends BaseWidget{
                 // @ts-ignore
                 this.$dropdownToggle.dropdown("hide");
 
-                this.callback(e, {url:urlLink, title:urlTitle});
                 if (!e.target || e.target.nodeName !== 'A') {
                     this.$widget.find('input[name="urlLinkContent"]').val(urlLink);
                     this.$widget.find('input[name="urlTextContent"]').val(urlTitle);
@@ -144,8 +143,5 @@ export default class QuickSearchWidget extends BaseWidget{
 
         // @ts-ignore
         this.$dropdownToggle.dropdown('update');
-    }
-    callback(e: JQuery.ClickEvent<HTMLElement, undefined, HTMLElement, HTMLElement>, arg1: { url: string | undefined; title: string; }) {
-        throw new Error("Method not implemented.");
     }
 }
